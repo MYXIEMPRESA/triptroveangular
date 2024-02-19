@@ -1,0 +1,254 @@
+<header>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+  
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      color: #000000;
+      text-decoration: none;
+    }
+  
+    header{
+      position: fixed;
+      top:0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.9s;
+      padding: 40px 100px;
+      z-index: 100000;
+      font-size: 18px;
+    }
+  
+    header.sticky{
+      padding: 5px 100px;
+      background: #000000;
+    }
+  
+      header.sticky .logo,
+      header.sticky ul li a{
+      color:#ffffff;
+    }
+  
+    header .logo{
+      position: relative;
+      font-weight: 700;
+      color: #000000;
+      text-decoration: none;
+      font-size: 2em;
+      letter-spacing: 2px;
+      transition: 0.6s;
+    }
+  
+    header ul {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    header ul li{
+      position: relative;
+      list-style: none;
+    }
+  
+    header ul li a {
+      position: relative;
+      margin: 0 15px;
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      letter-spacing: 2px;
+      font-weight: 500;
+      transition: 0.5s;
+      overflow: hidden;
+  }
+  
+  header ul li a::before,
+  header ul li a::after {
+      content: "";
+      position: absolute;
+      width: 120%; /* Ajusta el ancho del subrayado aquí */
+      height: 3px; /* Ajusta el grosor del subrayado aquí */
+      background-color: #000;
+      z-index: -1;
+      transition: transform 0.8s;
+      border-radius: 5px; /* Ajusta el radio del borde aquí */
+  }
+  
+  header ul li a::before {
+      top: 0;
+      left: -10%; /* Ajusta el desplazamiento del subrayado aquí */
+      transform: scaleX(0);
+      transform-origin: right;
+  }
+  
+  header ul li a::after {
+      bottom: 0;
+      right: -10%; /* Ajusta el desplazamiento del subrayado aquí */
+      transform: scaleX(0);
+      transform-origin: left;
+  }
+  
+  header ul li a:hover {
+      color: #000000;
+  }
+  
+  header ul li a:hover::before,
+  header ul li a:hover::after {
+      transform: scaleX(1);
+      transform-origin: center;
+  }
+  
+  .parallax {
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      width: 100%;
+      height: 100vh;
+    }
+  
+  .parallax.section2 {
+      background-image: url("../../../assets/images/principal 1.jpg");
+      align-items: center;
+       align-content: center;
+        text-align: left;
+       justify-content: center;
+  }
+  
+  .parallax.section2 h1 {
+    font-size: 100px; 
+    color: #000000;
+  }
+  
+  
+  .audi {
+    text-align: left;
+    justify-content: center;
+  }
+  
+  .content.audi h2 {
+    color: #000000;
+    font-size: 35px;
+  }
+  .multiText {
+    font-size: 35px;
+  }
+  
+  /* Agrega estilos para la sección de contacto */
+  .contact-section {
+    background-color: rgb(32, 32, 32);
+    color: white;
+    padding: 50px;
+    text-align: center;
+    height: 30vh; /* Cambiado a auto para adaptarse al contenido */
+  }
+  
+  .company-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    flex-wrap: wrap; /* Añadido para manejar el contenido en dispositivos pequeños */
+  }
+  
+  .company-info img {
+    max-width: 200px; 
+    margin-right: 35px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+  }
+  
+  .text-info,
+  .Myxi-text-info {
+    flex: 1;
+    max-width: 60%; /* Ajusta según sea necesario */
+  }
+  
+  .team-member,
+  .Myxi-text-info {
+    margin-top: 5px;
+    margin-left: 65px;
+  }
+  
+  .text-info h2,
+  .team-member h3,
+  .Myxi-text-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  .text-info p,
+  .team-member p,
+  .Myxi-text-info p {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #ffffff;
+  }
+  
+  .team-member a,
+  .Myxi-text-info a {
+    color: #ffffff;
+  }
+  </style>
+
+  <a href="http://myxitech.gerdoc.com" class="logo">TripTrove</a>
+  <ul>
+    <li><a href="index.html">INICIO</a></li>
+    <li><a href="html/acercade.html">ACERCA DE</a></li>
+    <li><a href="html/app.html">APP</a></li>
+    <li><a href="/login">INGRESAR</a></li>
+  </ul>
+</header>
+
+ <div class="parallax section2">
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <h1>   TU GUÍA VIAJERO</h1>
+    <div class="content audi">
+        <h2>   DESCUBRE  <span class="multiText"></span></h2>
+    </div>
+</div>
+<div class="contact-section">
+  <div class="company-info">
+      <div class="text-info">
+          <h2>Trip Trove</h2>
+          <p>Conoce nuestro centro de ayuda y Myxitech</p>
+      </div>
+          asdfasdf
+          <!-- Bloque de "Contactanos" -->
+          <div class="team-member">
+              <h3>Contactanos</h3>
+              <p>Numero: +52 1 55 6165 3040</p>
+              <p>Redes Sociales: <a href="https://www.instagram.com/daani_moon/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==" target="_blank">Daani_moon</a></p>
+          </div>
+      
+      <!-- Bloque de "Compañia" -->
+      <div class="Myxi-text-info">
+          <h3>Compañia</h3>
+          <p><a href="" target="_blank">Quienes somos</a></p>
+      </div>
+      <img src="/src/assets/images/logomyxi.jpeg" alt="Logo de TripTrove">
+
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+var typyingEffect = new Typed(".multiText", {
+  strings: ["EXPERIENCIAS...  ", "LUGARES...  ", "CULTURA...  ", "MÉXICO..."],
+  loop: true,
+  typeSpeed: 190,
+  backSpeed: 190,
+  backDelay: 3000
+});
+</script>
+<script type = "text/javascript">
+window.addEventListener("scroll",function(){
+  var header = document.querySelector("header");
+  header.classList.toggle("sticky",window.scrollY > 0);
+})
+</script>
