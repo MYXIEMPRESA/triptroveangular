@@ -8,6 +8,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { PlaceMapComponent } from './components/place-map/place-map.component';
 import { PlaceListComponent } from './components/place-list/place-list.component';
 import { NewPlaceComponent } from './components/new-place/new-place.component';
+import { AboutComponent } from './components/about/about.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,7 +17,9 @@ const routes: Routes = [
   { path: 'new-place', component: NewPlaceComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
+  { path: 'about', component: AboutComponent},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  
 ];
 
 @NgModule({

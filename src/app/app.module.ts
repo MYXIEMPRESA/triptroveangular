@@ -13,6 +13,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { PlaceMapComponent } from './components/place-map/place-map.component';
 import { PlaceListComponent } from './components/place-list/place-list.component';
 import { NewPlaceComponent } from './components/new-place/new-place.component';
+import { AndroidComponent } from './components/android/android.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NewPlaceComponent } from './components/new-place/new-place.component';
     DashboardComponent,
     PlaceListComponent,
     PlaceMapComponent,
-    NewPlaceComponent
+    NewPlaceComponent,
+    AndroidComponent
   ],
   imports: [
     BrowserModule,
