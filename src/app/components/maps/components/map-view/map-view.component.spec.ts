@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginComponent } from './LoginComponent';
+import { MapViewComponent } from './map-view.component';
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('MapViewComponent', () => {
+  let component: MapViewComponent;
+  let fixture: ComponentFixture<MapViewComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LoginComponent]
+      declarations: [MapViewComponent]
     });
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(MapViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

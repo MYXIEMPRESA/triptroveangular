@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginComponent } from './LoginComponent';
+import { DownloadComponent } from './download.component';
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('DownloadComponent', () => {
+  let component: DownloadComponent;
+  let fixture: ComponentFixture<DownloadComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LoginComponent]
+      declarations: [DownloadComponent]
     });
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(DownloadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

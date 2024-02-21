@@ -114,6 +114,7 @@ header ul li a:hover::after {
 
 .parallax.section1 {
     position: relative;
+    background-image: url("../../../assets/images/fondito.jpg");
     background-attachment: fixed;
     background-position: center;
     background-size: cover;

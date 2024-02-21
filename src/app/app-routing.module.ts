@@ -5,18 +5,17 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component'; 
 import { AuthGuard } from './shared/guards/auth.guard';
-import { PlaceMapComponent } from './components/place-map/place-map.component';
-import { PlaceListComponent } from './components/place-list/place-list.component';
-import { NewPlaceComponent } from './components/new-place/new-place.component';
 import { AboutComponent } from './components/about/about.component';
+import { DownloadComponent } from './components/download/download.component';
+import { MapScreenComponent } from './components/maps/screens/map-screen/map-screen.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'place-map', component: PlaceMapComponent },
-  { path: 'place-list', component: PlaceListComponent },
-  { path: 'new-place', component: NewPlaceComponent },
+  { path: 'maps', component: MapScreenComponent },
+  { path: 'download', component: DownloadComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
+  { path: 'about', component: AboutComponent},
   { path: 'about', component: AboutComponent},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   

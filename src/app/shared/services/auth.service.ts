@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone, Output } from '@angular/core';
 import { GoogleAuthProvider } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
@@ -35,7 +35,11 @@ export class AuthService {
         this.observeUserState()
       })
       .catch((error) => {
-        alert(error.message);
+        let errorMessage = "Hubo un error al iniciar sesión con Google."
+        if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
+          errorMessage = "Usuario o contraseña incorrectos. Por favor, verifica tus credenciales.";
+        }
+        return(errorMessage);
       })
   }
 
@@ -43,8 +47,12 @@ export class AuthService {
   logInWithGoogleProvider() {
     return this.firebaseAuthenticationService.signInWithPopup(new GoogleAuthProvider())
       .then(() => this.observeUserState())
-      .catch((error: Error) => {
-        alert(error.message);
+      .catch((error) => {
+        let errorMessage = "Hubo un error al iniciar sesión con Google."
+        if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
+          errorMessage = "Usuario o contraseña incorrectos. Por favor, verifica tus credenciales.";
+        }
+        return(errorMessage);
       })
   }
 
@@ -56,7 +64,11 @@ export class AuthService {
         this.observeUserState()
       })
       .catch((error) => {
-        alert(error.message);
+        let errorMessage = "Hubo un error al iniciar sesión con Google."
+        if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
+          errorMessage = "Usuario o contraseña incorrectos. Por favor, verifica tus credenciales.";
+        }
+        return(errorMessage);
       })
   }
 

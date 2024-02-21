@@ -42,6 +42,10 @@
               routerLink="/sign-up">Sign up</a>
           </p>
         </div>
+        <div *ngIf="errorMessage">
+          <p>{{ errorMessage }}</p>
+        </div>
+        
       </div>
     </div>
   </div>

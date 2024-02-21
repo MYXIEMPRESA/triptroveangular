@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AndroidComponent } from './android.component';
+import { MapScreenComponent } from './map-screen.component';
 
-describe('AndroidComponent', () => {
-  let component: AndroidComponent;
-  let fixture: ComponentFixture<AndroidComponent>;
+describe('MapScreenComponent', () => {
+  let component: MapScreenComponent;
+  let fixture: ComponentFixture<MapScreenComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AndroidComponent]
+      declarations: [MapScreenComponent]
     });
-    fixture = TestBed.createComponent(AndroidComponent);
+    fixture = TestBed.createComponent(MapScreenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
