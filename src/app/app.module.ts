@@ -12,7 +12,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DownloadComponent } from './components/download/download.component';
 import { MapsModule } from './components/maps/maps.module';
-import { BtnMyLocationComponent } from './components/maps/components/btn-my-location/btn-my-location.component';
+
+
 
 
 @NgModule({
@@ -22,7 +23,6 @@ import { BtnMyLocationComponent } from './components/maps/components/btn-my-loca
     SignUpComponent,
     DashboardComponent,
     DownloadComponent,
-    BtnMyLocationComponent,
   ],
   imports: [
     BrowserModule,

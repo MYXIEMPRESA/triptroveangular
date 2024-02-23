@@ -2,7 +2,7 @@
     position: fixed;
     top: 0px;
     right: 0px;
-    width: 100vh; /* Set your desired width */
+    width: 200vh; /* Set your desired width */
     height: 100vh; /* Set your desired height */
     background-color: red; /* Set your desired background color */
   }

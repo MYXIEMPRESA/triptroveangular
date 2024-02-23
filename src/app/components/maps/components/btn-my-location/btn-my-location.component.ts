@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class BtnMyLocationComponent {
 
+  constructor(){}
+
+  goToMyLocation() {
+ console.log("Ir a mi ubicacion");
+  }
 }
