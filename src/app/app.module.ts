@@ -11,6 +11,9 @@ import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DownloadComponent } from './components/download/download.component';
+import { MapsModule } from './components/maps/maps.module';
+import { BtnMyLocationComponent } from './components/maps/components/btn-my-location/btn-my-location.component';
+
 
 @NgModule({
   declarations: [
@@ -19,10 +22,12 @@ import { DownloadComponent } from './components/download/download.component';
     SignUpComponent,
     DashboardComponent,
     DownloadComponent,
+    BtnMyLocationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MapsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     AngularFireModule.initializeApp(environment.firebase),

@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class PlacesService {
 
-  userLocation? = [0, 0];
+  public userLocation?: [number, number];
 
   get isUserLocationReady(): boolean {
     return !!this.userLocation
@@ -15,12 +15,12 @@ export class PlacesService {
     this.getUserLocation();
   }
 
-  public async getUserLocation(): Promise<number[]> {
-    return new Promise<number[]>((resolve, reject) => {
+  public async getUserLocation(): Promise<[number, number]> {
+    return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
         ({ coords }) => {
-          const userLocation = [coords.longitude, coords.latitude];
-          resolve(userLocation);
+          this.userLocation = [coords.longitude, coords.latitude];
+          resolve(this.userLocation);
         },
         (err) => {
           alert("No se pudo obtener la geolocalización");
@@ -30,5 +30,4 @@ export class PlacesService {
       );
     });
   }
-
 }

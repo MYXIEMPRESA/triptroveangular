@@ -1,1 +1,4 @@
-<app-loading></app-loading>
+<app-loading *ngIf="!isUserLocationReady; else mapReady"></app-loading>
+<ng-template #mapReady>
+<app-map-view>si carge</app-map-view>
+</ng-template>
