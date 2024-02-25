@@ -1,0 +1,10 @@
+<div class="places">
+    <div class="place" *ngFor="let place of places">
+      <div class="image" [ngStyle]="{ backgroundImage: 'url(' + place.imageURL + ')' }"></div>
+      <div class="info">
+        <h4>{{ place.name }}</h4>
+        <p>{{ place.description }}</p>
+      </div>
+    </div>
+  </div>
+  

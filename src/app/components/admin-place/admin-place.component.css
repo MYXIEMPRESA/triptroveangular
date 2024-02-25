@@ -1,0 +1,18 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.list-group {
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    margin-top: 20px;
+  }
+  
+  .list-group-item {
+    cursor: pointer;
+  }
+  
+  .list-group-item:hover {
+    background-color: #f8f9fa;
+  }
+  

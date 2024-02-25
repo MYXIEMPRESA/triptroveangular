@@ -2,8 +2,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 
-
-import Mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+import Mapboxgl from 'mapbox-gl'; 
 
 Mapboxgl.accessToken = 'pk.eyJ1IjoibmFodW1sb3B6IiwiYSI6ImNsc3k2eGRlejBhYXIycm54YmxnaXlneTkifQ.wrnk_DcsIDYJ6a8OQSeE5Q';
 

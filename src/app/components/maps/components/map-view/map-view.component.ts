@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { PlacesService } from '../../services';
+import { MapService, PlacesService } from '../../services';
 import mapboxgl, { Marker, Popup } from 'mapbox-gl';
 
 @Component({
@@ -12,7 +12,9 @@ export class MapViewComponent implements AfterViewInit{
   @ViewChild('mapDiv')
   mapDivElement!: ElementRef
 
-  constructor(private placesService : PlacesService){
+  constructor(private placesService : PlacesService,
+    private mapService: MapService
+    ){
 
   }
 
@@ -20,10 +22,15 @@ export class MapViewComponent implements AfterViewInit{
     if(!this.placesService.userLocation) throw Error('No hat placesServices.location')
 
     const map = new mapboxgl.Map({
-      container: this.mapDivElement.nativeElement, // container ID
-      style: 'mapbox://styles/mapbox/streets-v12', // style URL
-      center: this.placesService.userLocation, // starting position [lng, lat]
-      zoom: 14, // starting zoom
+      container: this.mapDivElement.nativeElement,
+      style: 'mapbox://styles/nahumlopz/clt1r5k1e01tc01qj8vbd1ra0', 
+      center: this.placesService.userLocation, 
+      zoom: 14,
+      pitch: 30,
+      maxBounds: [
+        [-99.3269, 19.1056],
+        [-98.5636, 19.7039]  
+      ]
     });
     const popup = new Popup()
       .setHTML('<h6>Aqui Estoy</h6><br><span>Estoy en este lugar del mundo</span>');
@@ -31,6 +38,8 @@ export class MapViewComponent implements AfterViewInit{
       .setLngLat(this.placesService.userLocation)
       .setPopup(popup)
       .addTo(map)
+      this.mapService.setMap( map );
   }
+
 
 }

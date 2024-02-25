@@ -1,4 +1,5 @@
 export const environment = {
+  apiKey: 'pk.eyJ1IjoibmFodW1sb3B6IiwiYSI6ImNsc3k2eGRlejBhYXIycm54YmxnaXlneTkifQ.wrnk_DcsIDYJ6a8OQSeE5Q',
   firebase: {
     projectId: 'triptroveangular',
     appId: '1:424821813680:web:8e62cec178c0ffc4972675',

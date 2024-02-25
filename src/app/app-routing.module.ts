@@ -8,16 +8,17 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { AboutComponent } from './components/about/about.component';
 import { DownloadComponent } from './components/download/download.component';
 import { MapScreenComponent } from './components/maps/screens/map-screen/map-screen.component';
+import { AdminPlaceComponent } from './components/admin-place/admin-place.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'maps', component: MapScreenComponent },
   { path: 'download', component: DownloadComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'about', component: AboutComponent},
+  { path: 'maps', component: MapScreenComponent, canActivate: [AuthGuard]  },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  
+  { path: 'AdminPlace', component: AdminPlaceComponent},
 ];
 
 @NgModule({

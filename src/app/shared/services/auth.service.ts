@@ -88,7 +88,7 @@ export class AuthService {
   logOut() {
     return this.firebaseAuthenticationService.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['login']);
+      this.router.navigate(['']);
     })
   }
 
