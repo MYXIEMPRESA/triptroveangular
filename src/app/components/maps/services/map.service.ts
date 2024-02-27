@@ -112,8 +112,8 @@ export class MapService {
         'line-cap': 'round',
         'line-join': 'round'
       },paint:{
-        'line-color': 'black',
-        'line-width': 3
+        'line-color': 'green',
+        'line-width': 7
       }
     });
   }

@@ -8,7 +8,22 @@ import Place from '../UploadLocations/interfaces/place.interface';
   styleUrls: ['./place-list-user.component.css']
 })
 export class PlaceListUserComponent {
+  
+  selectedPlace: any;
 
+  showModal(place: any): void {
+    this.selectedPlace = place;
+    document.body.style.overflow = 'hidden'; // opcional: evita el scroll en el fondo
+  }
+
+  closeModal(): void {
+    this.selectedPlace = null;
+    document.body.style.overflow = 'auto'; // opcional: restaura el scroll en el fondo
+  }
+
+  stopPropagation(event: Event): void {
+    event.stopPropagation();
+  }
   places: Place[] | undefined;
 
   constructor(

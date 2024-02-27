@@ -9,6 +9,7 @@ import { HttpClientModule }  from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -19,6 +20,9 @@ import { FormsModule } from '@angular/forms';
 import { UploadLocationsModule } from './components/UploadLocations/upload-locations.module';
 import { AdminPlaceComponent } from './components/admin-place/admin-place.component';
 import { PlaceListUserComponent } from './components/place-list-user/place-list-user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -35,6 +39,7 @@ import { PlaceListUserComponent } from './components/place-list-user/place-list-
     AppRoutingModule,
     FormsModule,
     MapsModule,
+    CarouselModule.forRoot(),
     UploadLocationsModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -42,6 +47,7 @@ import { PlaceListUserComponent } from './components/place-list-user/place-list-
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     AngularFireModule.initializeApp(environment.firebase),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

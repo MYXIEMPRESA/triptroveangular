@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
 * {
     margin: 0;
     padding: 0;
@@ -59,6 +59,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #ffffff;
     transition: 0.9s;
     padding: 10px 100px;
     z-index: 100000;
@@ -67,7 +68,7 @@ header{
 
 header.sticky{
     padding: 8px 100px;
-    background: #000000;
+    background: #ffffff;
 }
 
 header.sticky .logo,
@@ -78,7 +79,7 @@ header.sticky ul li a{
 header .logo{
     position: relative;
     font-weight: 700;
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
     font-size: 2em;
     letter-spacing: 2px;

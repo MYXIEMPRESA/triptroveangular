@@ -6,4 +6,5 @@ export default interface Place {
     description: string;
     image?: File;
     imageURL?: string; 
+    categories?: string[]; 
 }

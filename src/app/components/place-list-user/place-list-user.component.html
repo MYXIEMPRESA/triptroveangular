@@ -1,10 +1,27 @@
 <div class="places">
-    <div class="place" *ngFor="let place of places">
-      <div class="image" [ngStyle]="{ backgroundImage: 'url(' + place.imageURL + ')' }"></div>
-      <div class="info">
-        <h4>{{ place.name }}</h4>
-        <p>{{ place.description }}</p>
+  <div class="place" *ngFor="let place of places" (click)="showModal(place)">
+    <div class="image" [ngStyle]="{ backgroundImage: 'url(' + place.imageURL + ')' }"></div>
+    <div class="info">
+      <h4>{{ place.name }}</h4>
+      <p>{{ place.description }}</p>
+      <div *ngIf="place.categories && place.categories.length > 0">
+        <p>Categorías: {{ place.categories.join(', ') }}</p>
       </div>
     </div>
   </div>
-  
+</div>
+
+<!-- Modal -->
+<div class="modal" *ngIf="selectedPlace" (click)="closeModal()">
+  <div class="modal-content" (click)="stopPropagation($event)">
+    <div class="modal-image" [ngStyle]="{ backgroundImage: 'url(' + selectedPlace.imageURL + ')' }"></div>
+    <div class="modal-info">
+      <h4>{{ selectedPlace.name }}</h4>
+      <p>{{ selectedPlace.description }}</p>
+      <div *ngIf="selectedPlace.categories && selectedPlace.categories.length > 0">
+        <p>Categorías: {{ selectedPlace.categories.join(', ') }}</p>
+      </div>
+    </div>
+    <button (click)="closeModal()">Cerrar</button>
+  </div>
+</div>
