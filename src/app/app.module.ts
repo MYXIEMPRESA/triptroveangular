@@ -21,6 +21,7 @@ import { UploadLocationsModule } from './components/UploadLocations/upload-locat
 import { AdminPlaceComponent } from './components/admin-place/admin-place.component';
 import { PlaceListUserComponent } from './components/place-list-user/place-list-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommentsComponent } from './components/comments/comments.component';
 
 
 
@@ -33,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DownloadComponent,
     AdminPlaceComponent,
     PlaceListUserComponent,
+    CommentsComponent,
   ],
   imports: [
     BrowserModule,
