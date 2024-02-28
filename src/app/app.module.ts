@@ -9,7 +9,6 @@ import { HttpClientModule }  from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -41,7 +40,6 @@ import { CommentsComponent } from './components/comments/comments.component';
     AppRoutingModule,
     FormsModule,
     MapsModule,
-    CarouselModule.forRoot(),
     UploadLocationsModule,
     HttpClientModule,
     ReactiveFormsModule,

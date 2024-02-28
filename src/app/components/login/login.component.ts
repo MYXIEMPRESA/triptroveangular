@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
@@ -7,17 +8,33 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  usuario: string = '';
+  contrasenia: string = '';
   errorMessage: string | void | undefined;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) { }
 
-  }
-  logIn(email: string, password: string) {
-   this.authService.logInWithEmailAndPassword(email, password).then((message) => {
-    this.errorMessage = message;})
+  async iniciarSesion() {
+    try {
+      await this.authService.logInWithEmailAndPassword(this.usuario, this.contrasenia);
+      // El inicio de sesión fue exitoso, puedes redirigir al usuario o realizar otras acciones.
+    } catch (error: any) {
+      if (error.code === 'auth/user-not-found') {
+        this.errorMessage = 'Usuario no encontrado. Por favor, registra una cuenta.';
+      } else if (error.code === 'auth/wrong-password') {
+        this.errorMessage = 'Contraseña incorrecta. Por favor, inténtalo nuevamente.';
+      } else {
+        this.errorMessage = 'Ha ocurrido un error durante el inicio de sesión. Por favor, inténtalo nuevamente más tarde.';
+      }
+    }
   }
 
-  logInWithGoogle() {
+  iniciarSesionConGoogle() {
     this.authService.logInWithGoogleProvider();
+  }
+
+  regresarInicio() {
+    // Redirige al usuario a la página de inicio
+    this.router.navigate(['/']);
   }
 }

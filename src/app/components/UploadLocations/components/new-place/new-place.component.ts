@@ -11,7 +11,7 @@ import { PlacesService } from '../../services';
 })
 export class NewPlaceComponent implements OnInit {
 
-  categories = ['cultural', 'historia', 'familiar', 'naturaleza', 'parques', 'museos', 'cultura', 'diversion'];
+  categories = ['cultural', 'historia', 'familiar', 'naturaleza', 'parques', 'museos', 'diversion'];
 
   formulario: FormGroup;
 

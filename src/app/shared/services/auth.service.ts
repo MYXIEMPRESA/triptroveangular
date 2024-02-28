@@ -1,4 +1,4 @@
-import { Injectable, NgZone, Output } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { GoogleAuthProvider } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
@@ -15,7 +15,6 @@ export class AuthService {
     private router: Router,
     private ngZone: NgZone
   ) {
-    // OBSERVER save user in localStorage (log-in) and setting up null when log-out
     this.firebaseAuthenticationService.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
@@ -23,73 +22,82 @@ export class AuthService {
       } else {
         localStorage.setItem('user', 'null');
       }
-    })
-
+    });
   }
 
-  // log-in with email and password
   logInWithEmailAndPassword(email: string, password: string) {
     return this.firebaseAuthenticationService.signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        this.userData = userCredential.user
-        this.observeUserState()
+        this.userData = userCredential.user;
+        this.observeUserState();
       })
       .catch((error) => {
-        let errorMessage = "Hubo un error al iniciar sesión con Google."
-        if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
-          errorMessage = "Usuario o contraseña incorrectos. Por favor, verifica tus credenciales.";
+        let errorMessage = 'Hubo un error al iniciar sesión con Google.';
+        if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+          errorMessage = 'Usuario o contraseña incorrectos. Por favor, verifica tus credenciales.';
         }
-        return(errorMessage);
-      })
+        return errorMessage;
+      });
   }
 
-  // log-in with google
   logInWithGoogleProvider() {
     return this.firebaseAuthenticationService.signInWithPopup(new GoogleAuthProvider())
       .then(() => this.observeUserState())
       .catch((error) => {
-        let errorMessage = "Hubo un error al iniciar sesión con Google."
-        if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
-          errorMessage = "Usuario o contraseña incorrectos. Por favor, verifica tus credenciales.";
+        let errorMessage = 'Hubo un error al iniciar sesión con Google.';
+        if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+          errorMessage = 'Usuario o contraseña incorrectos. Por favor, verifica tus credenciales.';
         }
-        return(errorMessage);
-      })
+        return errorMessage;
+      });
   }
 
-  // sign-up with email and password
   signUpWithEmailAndPassword(email: string, password: string) {
     return this.firebaseAuthenticationService.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        this.userData = userCredential.user
-        this.observeUserState()
+        this.userData = userCredential.user;
+        this.observeUserState();
       })
       .catch((error) => {
-        let errorMessage = "Hubo un error al iniciar sesión con Google."
-        if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
-          errorMessage = "Usuario o contraseña incorrectos. Por favor, verifica tus credenciales.";
+        let errorMessage = 'Hubo un error al iniciar sesión con Google.';
+        if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+          errorMessage = 'Usuario o contraseña incorrectos. Por favor, verifica tus credenciales.';
         }
-        return(errorMessage);
+        return errorMessage;
+      });
+  }
+
+  signUpWithGoogle() {
+    return this.firebaseAuthenticationService.signInWithPopup(new GoogleAuthProvider())
+      .then((userCredential) => {
+        this.userData = userCredential.user;
+        this.observeUserState();
       })
+      .catch((error) => {
+        let errorMessage = 'Hubo un error al iniciar sesión con Google.';
+        if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+          errorMessage = 'Usuario o contraseña incorrectos. Por favor, verifica tus credenciales.';
+        }
+        return errorMessage;
+      });
   }
 
   observeUserState() {
     this.firebaseAuthenticationService.authState.subscribe((userState) => {
-      userState && this.ngZone.run(() => this.router.navigate(['dashboard']))
-    })
+      userState && this.ngZone.run(() => this.router.navigate(['dashboard']));
+    });
   }
 
-  // return true when user is logged in
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null;
   }
 
-  // logOut
   logOut() {
     return this.firebaseAuthenticationService.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['']);
-    })
+    });
   }
 
 }

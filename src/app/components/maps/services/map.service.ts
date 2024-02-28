@@ -28,6 +28,7 @@ export class MapService {
     this.map?.flyTo({
       zoom: 16,
       pitch: 40,
+      essential: true,
       center: coords
     });
   }

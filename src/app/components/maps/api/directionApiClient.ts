@@ -16,8 +16,8 @@ export class DirectionsApiClient extends HttpClient{
     public override get<T>(url: string) {
         url = this.baseUrl + url;
         return super.get<T>(url, { params: {
-            alternatives: false,
-            geometries: 'geojson',  // Fix the typo here
+            alternatives: true,
+            geometries: 'geojson',
             language: 'es',
             overview: 'simplified',
             steps: false,

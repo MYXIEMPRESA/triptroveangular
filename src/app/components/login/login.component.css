@@ -1,23 +1,87 @@
-.bg-image {
-  background-image: url('fondoLogin.jpg'); /* Reemplaza 'ruta/de/tu/imagen.jpg' con la ruta correcta de tu imagen */
-  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
-  background-position: center; /* Centra la imagen en el contenedor */
-  background-repeat: no-repeat; /* Evita la repetición de la imagen */
-
-  background-color: rgba(255, 255, 255, 0.8); /* El último valor (0.8) determina la opacidad, 1 es completamente opaco y 0 es completamente transparente */
+body {
+  background-image: url('fondoLogin.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  max-height: 100vh;
+  overflow: hidden; /* Evitará el desplazamiento vertical cuando el contenido sea más grande que la pantalla */
 }
 
-.container {
+.login-wrapper {
+  height: 700px;
+  max-width: 400px;
+  margin: 200px auto; /* Alinea el wrapper al centro horizontalmente */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 11px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.247);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.login-wrapper h1 {
+  align-self: center;
+  justify-self: center;
+}
+
+.input-box,
+.btn,
+.google-btn,
+.back-button {
+  width: 100%; /* Ajusta el ancho para que sea igual al de los campos de entrada */
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input,
+.btn,
+.google-btn,
+.back-button {
+  width: 100%;
+  padding: 10px; /* Ajusta el padding para que sea similar al del botón de iniciar sesión */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+}
+
+.google-btn {
   display: flex;
-  justify-content: flex-start; /* Ajusta para alinear el contenido a la izquierda */
+  align-items: center;
 }
 
-/* Agrega estilos para hacer el cuadro más transparente */
-.w-full {
-  background-color: rgba(255, 255, 255, 0.8);
+.google-icon img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px; /* Espacio entre el logo y el texto del botón */
 }
 
-/* Ajusta la opacidad del texto para que se vea bien sobre el fondo transparente */
-.text-gray-900 {
-  color: rgba(0, 0, 0, 0.8);
+.back-button {
+  background-color: #000000;
+  padding: 5px 10px; /* Ajusta el padding para que sea similar al de los otros botones */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff; /* Color del texto */
 }
+
+/* Estilos adicionales según necesidades */
+.register-link {
+  margin-top: 10px;
+}
+
+/* Media query para hacer el formulario responsive */
+@media (max-width: 600px) {
+  .login-wrapper {
+    max-width: 100%;
+  }
+} 
