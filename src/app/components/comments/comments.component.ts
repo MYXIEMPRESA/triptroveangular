@@ -23,19 +23,4 @@ export class CommentsComponent {
       comment: ['', Validators.required],
     });
   }
-
-  // onSubmit() {
-  //   if (this.commentForm.valid && this.userId) {
-  //     const newComment: Comment = {
-  //       // id: this.userId,
-  //       comment: this.commentForm.value.comment,
-  //       date: new Date(),
-  //       likeCount: 0,
-  //       dislikeCount: 0
-  //     };
-
-  //     // Envía 'newComment' a tu backend o procesa según sea necesario
-  //     console.log(newComment);
-    // }
-  // }
 }

@@ -18,11 +18,7 @@ export interface Route {
 
 export interface Geometry {
     coordinates: Array<number[]>;
-    type:        Type;
-}
-
-export enum Type {
-    LineString = "LineString",
+    type:        string;
 }
 
 export interface Leg {
@@ -46,27 +42,17 @@ export interface Step {
     name:          string;
     duration:      number;
     distance:      number;
-    driving_side:  DrivingSide;
+    driving_side:  string;
     weight:        number;
-    mode:          Mode;
+    mode:          string;
     geometry:      Geometry;
-    destinations?: string;
-    ref?:          string;
-    exits?:        string;
-}
-
-export enum DrivingSide {
-    Left = "left",
-    Right = "right",
-    SlightLeft = "slight left",
-    SlightRight = "slight right",
-    Straight = "straight",
 }
 
 export interface Intersection {
     entry:              boolean[];
     bearings:           number[];
     duration?:          number;
+    traffic_signal?:    boolean;
     mapbox_streets_v8?: MapboxStreetsV8;
     is_urban?:          boolean;
     admin_index:        number;
@@ -77,42 +63,16 @@ export interface Intersection {
     in?:                number;
     turn_weight?:       number;
     turn_duration?:     number;
-    traffic_signal?:    boolean;
-    lanes?:             Lane[];
-    classes?:           ClassElement[];
-    toll_collection?:   TollCollection;
-}
-
-export enum ClassElement {
-    Motorway = "motorway",
-    Toll = "toll",
-    Tunnel = "tunnel",
-}
-
-export interface Lane {
-    indications:       DrivingSide[];
-    valid_indication?: DrivingSide;
-    valid:             boolean;
-    active:            boolean;
 }
 
 export interface MapboxStreetsV8 {
-    class: MapboxStreetsV8Class;
+    class: Class;
 }
 
-export enum MapboxStreetsV8Class {
-    Motorway = "motorway",
-    MotorwayLink = "motorway_link",
-    PrimaryLink = "primary_link",
-    Secondary = "secondary",
-    SecondaryLink = "secondary_link",
-    Service = "service",
+export enum Class {
     Street = "street",
+    StreetLimited = "street_limited",
     Tertiary = "tertiary",
-}
-
-export interface TollCollection {
-    type: string;
 }
 
 export interface Maneuver {
@@ -121,11 +81,7 @@ export interface Maneuver {
     bearing_after:  number;
     bearing_before: number;
     location:       number[];
-    modifier?:      DrivingSide;
-}
-
-export enum Mode {
-    Driving = "driving",
+    modifier?:      string;
 }
 
 export interface Waypoint {

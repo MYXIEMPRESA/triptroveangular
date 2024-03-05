@@ -3,7 +3,8 @@ import { AnySourceData, LngLatBounds, LngLatLike, Map, Marker, Popup } from 'map
 import { Feature } from '../interfaces/places';
 import { DirectionsApiClient } from '../api';
 import { DirectionsResponse, Route} from '../interfaces/directions';
-
+import { Geometry } from '../interfaces/distance';
+ 
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +12,7 @@ export class MapService {
 
   private map?: Map;
   private  markers: Marker[] = []
+  stepsAsString: string = '';
 
   get isMapReady(){
     return !!this.map
@@ -58,28 +60,24 @@ export class MapService {
     this.map.fitBounds(bounds, { padding: 200})
   }  
 
-  getRouteBetweenPoints(start:[ number, number],end: [number,number] ){
-
-    this.directionsApi.get<DirectionsResponse>(`/${start.join(',')};${end.join(',')}`)
+  getRouteBetweenPoints(transport : String,start:[ number, number],end: [number,number] ){
+    this.directionsApi.get<DirectionsResponse>(`/${transport}/${start.join(',')};${end.join(',')}`)
     .subscribe(resp => this.drawPolyline(resp.routes[0] ) ) ;
-    
   }
 
+
   private drawPolyline(route: Route){
-
+    const steps = route.legs[0].steps;
+    console.log('Instrucciones de la Ruta:');
+    for (const step of steps) {
+      console.log(step.maneuver.instruction);
+    }
     console.log({kms: route.distance / 1000 , duration: route.duration / 60})
-    
     if(!this.map) throw Error('Mapa no inicializado');
-
     const coords = route.geometry.coordinates;
-
     const bounds = new LngLatBounds();
-
     coords.forEach(([lng,lat]) =>  bounds.extend([lng, lat]));
-
     this.map?.fitBounds( bounds,{padding: 200})
-    
-    
     const sourceData: AnySourceData ={  
       type:'geojson',
       data:{
@@ -97,14 +95,11 @@ export class MapService {
         ]
       }
     }
-
     if(this.map.getLayer('RouteString')){
       this.map.removeLayer('RouteString');
       this.map.removeSource('RouteString');
     }
-
     this.map.addSource('RouteString', sourceData);
-
     this.map.addLayer({
       id:'RouteString',
       type: 'line',
@@ -117,5 +112,12 @@ export class MapService {
         'line-width': 7
       }
     });
+  }
+
+  private distancePolyLine(geometry: Geometry){
+
+    if(!this.map) throw Error('Mapa no inicializado');
+    const coords = geometry.coordinates;
+    const bounds = new LngLatBounds();
   }
 }

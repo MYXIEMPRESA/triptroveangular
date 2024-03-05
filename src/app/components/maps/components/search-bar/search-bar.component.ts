@@ -10,12 +10,14 @@ export class SearchBarComponent {
 
   private debounceTimer?: NodeJS.Timeout;
 
+  public searchTabOpen: boolean = true;
+
   constructor(private placesService: PlacesService){}
 
+
+
   onQueryChanged( query: string = ''){
-
     if(this.debounceTimer) clearTimeout(this.debounceTimer);
-
       this.debounceTimer = setTimeout(() => {
         this.placesService.getPlacesByQuery( query ); 
       }, 350 );

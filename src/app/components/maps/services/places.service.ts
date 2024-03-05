@@ -38,13 +38,11 @@ export class PlacesService {
   }
 
   getPlacesByQuery(query: string = '') {
-
     if (query.length === 0) {
       this.isLoadingPlaces = false;
       this.places = []
       return;
     }
-
     if (!this.userLocation) throw Error('No hay userLocation');
     this.isLoadingPlaces = true;
     this.placesApi.get<PlacesResponse>(`/${query}.json`, { params: { proximity: this.userLocation?.join(',') } })
@@ -56,9 +54,7 @@ export class PlacesService {
         this.mapService.createMarkersFromPlaces(this.places,this.userLocation!);
       });
   }
-
   upPlaces(){
     this.places = [];
   }
-
 }

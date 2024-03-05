@@ -1,15 +1,23 @@
-<div *ngIf="isLodingPlaces">
-<div class="alert alert-primary mt-2 text-center">
-    <h6>Cargando</h6>
-    <span>Espere por favor...</span>
-</div>
-</div>
 <ul class="list-group mt-2" *ngIf="places.length > 0">
-    <li *ngFor="let place of places" class="list-group-item list-group-item pointer active" [class.active]="place.id === selectedId" (click)="flyto( place)" >
+    <li *ngFor="let place of places" class="list-group-item list-group-item pointer active" [class.active]="place.id === selectedId" (click)="flyto(place)">
         <h6>{{place.text_es}}</h6>
         <p>{{place.place_name}}</p>
-        <button  class="btn btn-sm" (click)="getDirections(place)" [ngClass]="(place.id === selectedId) ? 'btn-outline-light': 'btn-outline-primary'">
+        <button class="btn btn-sm" (click)="getDirections(transport, place)" [ngClass]="(place.id === selectedId) ? 'btn-outline-light': 'btn-outline-primary'">
             Direcciones
         </button>
     </li>
 </ul>
+<div class="form-check">
+    <input type="checkbox" id="driving-traffic" class="form-check-input" (change)="updateTransport('driving-traffic')"  [checked]="transport === 'driving-traffic'">
+    <label for="driving-traffic" class="form-check-label">Driving</label>
+</div>
+
+<div class="form-check">
+    <input type="checkbox" id="walking" class="form-check-input" (change)="updateTransport('walking')" [checked]="transport === 'walking'">
+    <label for="walking" class="form-check-label">Walking</label>
+</div>
+
+<div class="form-check">
+    <input type="checkbox" id="cycling" class="form-check-input" (change)="updateTransport('cycling')" [checked]="transport === 'cycling'">
+    <label for="cycling" class="form-check-label">Cycling</label>
+</div>
