@@ -8,8 +8,7 @@ import { MapService, PlacesService } from '../../services';
 })
 export class UbicationRangeComponent {
 
-  constructor(private placesService:PlacesService,
-    private mapService:MapService){}
+  constructor(private mapService:MapService){}
 
   selectedTime: string = '';
 

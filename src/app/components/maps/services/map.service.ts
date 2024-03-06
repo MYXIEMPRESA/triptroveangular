@@ -4,6 +4,7 @@ import { Feature } from '../interfaces/places';
 import { DirectionsApiClient } from '../api';
 import { DirectionsResponse, Route} from '../interfaces/directions';
 import { Geometry } from '../interfaces/distance';
+import { DistanceApiClient } from '../api/distanceApiClient';
  
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class MapService {
     return !!this.map
   }
 
-  constructor(private directionsApi: DirectionsApiClient) {}
+  constructor(private directionsApi: DirectionsApiClient,
+    private distanceApi: DistanceApiClient) {}
 
   setMap( map: Map){
     this.map= map;
@@ -128,7 +130,35 @@ export class MapService {
   }
 
    distancePolyline(selectedTime:String){
+    //mapa cargado
+    if(!this.map) throw Error('Mapa no inicializado');
 
+
+    //Inicia una nueva varible bounds con las variables 
+    const bounds = new LngLatBounds();
+
+    
+    //el mapa se le coloca bounds con un padding de 200
+    this.map?.fitBounds( bounds,{padding: 200})
+    
+   
+    if(this.map.getLayer('RouteString')){
+      this.map.removeLayer('RouteString');
+      this.map.removeSource('RouteString');
+    }
+
+    this.map.addLayer({
+      id:'RouteString',
+      type: 'line',
+      source: 'RouteString',
+      layout:{
+        'line-cap': 'round',
+        'line-join': 'round'
+      },paint:{
+        'line-color': 'green',
+        'line-width': 7
+      }
+    });
   }
 
 }
