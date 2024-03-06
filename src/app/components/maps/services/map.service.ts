@@ -37,9 +37,6 @@ export class MapService {
 
   createMarkersFromPlaces(places: Feature[],userLocation:[number,number]) {
     if (!this.map) throw Error("Mapa no inicializado");
-
-    
-
     this.markers.forEach(marker => marker.remove());
     const newMarkers = [];
     for (const place of places) {
@@ -48,17 +45,15 @@ export class MapService {
       const newMarker = new Marker().setLngLat([lng, lat]).setPopup(popup).addTo(this.map);
       newMarkers.push(newMarker); 
     }
-    
     this.markers = newMarkers;
-
     if ( places.length == 0) return;
-
     const bounds = new LngLatBounds()
     newMarkers.forEach(marker => bounds.extend(marker.getLngLat()));
     bounds.extend(userLocation)
-
     this.map.fitBounds(bounds, { padding: 200})
   }  
+
+
 
   getRouteBetweenPoints(transport : String,start:[ number, number],end: [number,number] ){
     this.directionsApi.get<DirectionsResponse>(`/${transport}/${start.join(',')};${end.join(',')}`)
@@ -66,18 +61,33 @@ export class MapService {
   }
 
 
+
   private drawPolyline(route: Route){
+    //pasos consola
     const steps = route.legs[0].steps;
     console.log('Instrucciones de la Ruta:');
     for (const step of steps) {
       console.log(step.maneuver.instruction);
     }
+
+    //mapa distancia y tiempo
     console.log({kms: route.distance / 1000 , duration: route.duration / 60})
+    
+    //mapa cargado
     if(!this.map) throw Error('Mapa no inicializado');
+
+    //iniciar una variable coords con las coordenadas de la ruta 
     const coords = route.geometry.coordinates;
+
+    //Inicia una nueva varible bounds con las variables 
     const bounds = new LngLatBounds();
+
+    //bounds obtiene coords
     coords.forEach(([lng,lat]) =>  bounds.extend([lng, lat]));
+    
+    //el mapa se le coloca bounds con un padding de 200
     this.map?.fitBounds( bounds,{padding: 200})
+    
     const sourceData: AnySourceData ={  
       type:'geojson',
       data:{
@@ -95,11 +105,14 @@ export class MapService {
         ]
       }
     }
+
     if(this.map.getLayer('RouteString')){
       this.map.removeLayer('RouteString');
       this.map.removeSource('RouteString');
     }
+
     this.map.addSource('RouteString', sourceData);
+
     this.map.addLayer({
       id:'RouteString',
       type: 'line',
@@ -114,10 +127,8 @@ export class MapService {
     });
   }
 
-  private distancePolyLine(geometry: Geometry){
+   distancePolyline(selectedTime:String){
 
-    if(!this.map) throw Error('Mapa no inicializado');
-    const coords = geometry.coordinates;
-    const bounds = new LngLatBounds();
   }
+
 }

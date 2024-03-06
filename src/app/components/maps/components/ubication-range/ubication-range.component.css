@@ -1,20 +1,20 @@
-button {
+select {
     position: fixed;
     top: 20px;
-    right: 20px;
+    right: 170px;
     z-index: inherit;
-    padding: 10px 15px; /* Ajusta el espaciado interno según sea necesario */
+    padding: 10px; /* Ajusta el espaciado interno según sea necesario */
     font-size: 16px; /* Tamaño de fuente */
-    border: 2px solid #4CAF50; /* Borde del botón */
+    border: 2px solid #ccc; /* Borde del select */
     border-radius: 5px; /* Esquinas redondeadas */
-    background-color: #4CAF50; /* Color de fondo */
-    color: #fff; /* Color del texto */
+    background-color: #fff; /* Color de fondo */
+    color: #333; /* Color del texto */
     cursor: pointer; /* Cambia el cursor al pasar por encima */
     outline: none; /* Elimina el contorno predeterminado en algunos navegadores */
 }
 
 /* Puedes agregar estilos adicionales para el hover o focus según tus necesidades */
-button:hover,
-button:focus {
-    background-color: #45a049; /* Cambia el color de fondo al pasar por encima o al tener el foco */
+select:hover,
+select:focus {
+    border-color: #66afe9; /* Cambia el color del borde al pasar por encima o al tener el foco */
 }

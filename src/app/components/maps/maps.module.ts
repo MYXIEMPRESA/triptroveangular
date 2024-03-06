@@ -7,6 +7,8 @@ import { BtnMyLocationComponent } from './components/btn-my-location/btn-my-loca
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { UbicationRangeComponent } from './components/ubication-range/ubication-range.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,10 +18,12 @@ import { LoadingComponent } from './components/loading/loading.component';
     AngularLogoComponent,
     BtnMyLocationComponent,
     SearchBarComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    UbicationRangeComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ]
 })
 export class MapsModule { }
