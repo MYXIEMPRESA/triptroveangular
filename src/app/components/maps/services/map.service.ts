@@ -133,14 +133,11 @@ export class MapService {
     //mapa cargado
     if(!this.map) throw Error('Mapa no inicializado');
 
-
     //Inicia una nueva varible bounds con las variables 
     const bounds = new LngLatBounds();
-
     
     //el mapa se le coloca bounds con un padding de 200
     this.map?.fitBounds( bounds,{padding: 200})
-    
    
     if(this.map.getLayer('RouteString')){
       this.map.removeLayer('RouteString');
@@ -160,5 +157,4 @@ export class MapService {
       }
     });
   }
-
 }
