@@ -7,7 +7,7 @@ import mapboxgl, { Marker, Popup } from 'mapbox-gl';
   templateUrl: './map-view.component.html',
   styleUrls: ['./map-view.component.css']
 })
-export class MapViewComponent implements AfterViewInit{
+export class  MapViewComponent implements AfterViewInit{
 
   @ViewChild('mapDiv')
   mapDivElement!: ElementRef
@@ -39,6 +39,8 @@ export class MapViewComponent implements AfterViewInit{
       .setPopup(popup)
       .addTo(map)
       this.mapService.setMap( map );
+    const popupMuse = new Popup()
+      .setHTML('<h6>')
   }
 
 

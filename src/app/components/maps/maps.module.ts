@@ -9,6 +9,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { LoadingComponent } from './components/loading/loading.component';
 import { UbicationRangeComponent } from './components/ubication-range/ubication-range.component';
 import { FormsModule } from '@angular/forms';
+import { RequestDocsComponent } from './components/request-docs/request-docs.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     BtnMyLocationComponent,
     SearchBarComponent,
     SearchResultsComponent,
-    UbicationRangeComponent
+    UbicationRangeComponent,
+    RequestDocsComponent
   ],
   imports: [
     CommonModule,
