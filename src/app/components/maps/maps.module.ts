@@ -10,6 +10,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { UbicationRangeComponent } from './components/ubication-range/ubication-range.component';
 import { FormsModule } from '@angular/forms';
 import { RequestDocsComponent } from './components/request-docs/request-docs.component';
+import { PopupsRoutesComponent } from './components/popups-routes/popups-routes.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RequestDocsComponent } from './components/request-docs/request-docs.com
     SearchBarComponent,
     SearchResultsComponent,
     UbicationRangeComponent,
-    RequestDocsComponent
+    RequestDocsComponent,
+    PopupsRoutesComponent
   ],
   imports: [
     CommonModule,

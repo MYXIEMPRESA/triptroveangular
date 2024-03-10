@@ -48,6 +48,6 @@ export class SearchResultsComponent {
   //subir transporte
   updateTransport(option: string): void {
     this.transport = option;
-}
+  }
 }
 
