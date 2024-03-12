@@ -1,9 +1,15 @@
+<!-- Sección para mostrar la lista de lugares -->
 <div class="places">
   <div class="place" *ngFor="let place of places" (click)="showModal(place)">
+    <!-- Imagen del lugar -->
     <div class="image" [ngStyle]="{ backgroundImage: 'url(' + place.imageURL + ')' }"></div>
+    
+    <!-- Información del lugar -->
     <div class="info">
       <h4>{{ place.name }}</h4>
       <p>{{ place.description }}</p>
+      
+      <!-- Categorías del lugar, si las hay -->
       <div *ngIf="place.categories && place.categories.length > 0">
         <p>Categorías: {{ place.categories.join(', ') }}</p>
       </div>
@@ -11,16 +17,25 @@
   </div>
 </div>
 
+<!-- Sección del modal para mostrar detalles del lugar seleccionado -->
 <div class="modal" *ngIf="selectedPlace" (click)="closeModal()">
   <div class="modal-content" (click)="stopPropagation($event)">
+    
+    <!-- Imagen del lugar seleccionado -->
     <div class="modal-image" [ngStyle]="{ backgroundImage: 'url(' + selectedPlace.imageURL + ')' }"></div>
+    
+    <!-- Información del lugar seleccionado -->
     <div class="modal-info">
       <h4>{{ selectedPlace.name }}</h4>
       <p>{{ selectedPlace.description }}</p>
+      
+      <!-- Categorías del lugar seleccionado, si las hay -->
       <div *ngIf="selectedPlace.categories && selectedPlace.categories.length > 0">
         <p>Categorías: {{ selectedPlace.categories.join(', ') }}</p>
       </div>
     </div>
+    
+    <!-- Botón para cerrar el modal -->
     <button (click)="closeModal()">Cerrar</button>
   </div>
 </div>

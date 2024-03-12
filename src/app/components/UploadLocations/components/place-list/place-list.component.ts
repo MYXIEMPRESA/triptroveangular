@@ -14,8 +14,7 @@ export class PlaceListComponent implements OnInit {
   places: Place[] | undefined;
 
   constructor(
-    private placesService: PlacesService
-  ) {
+    private placesService: PlacesService) {
   }
 
   ngOnInit(): void {
@@ -28,5 +27,4 @@ export class PlaceListComponent implements OnInit {
     const response = await this.placesService.deletePlace(place);
     console.log(response);
   }
-
 }

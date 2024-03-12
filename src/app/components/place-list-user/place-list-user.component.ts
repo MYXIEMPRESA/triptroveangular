@@ -13,12 +13,12 @@ export class PlaceListUserComponent {
 
   showModal(place: any): void {
     this.selectedPlace = place;
-    document.body.style.overflow = 'hidden'; // opcional: evita el scroll en el fondo
+    document.body.style.overflow = 'hidden'; 
   }
 
   closeModal(): void {
     this.selectedPlace = null;
-    document.body.style.overflow = 'auto'; // opcional: restaura el scroll en el fondo
+    document.body.style.overflow = 'auto'; 
   }
 
   stopPropagation(event: Event): void {
@@ -36,4 +36,5 @@ export class PlaceListUserComponent {
       this.places = places;
     });
   }
+  
 }

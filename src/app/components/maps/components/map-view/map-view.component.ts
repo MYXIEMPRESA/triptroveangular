@@ -23,7 +23,7 @@ export class  MapViewComponent implements AfterViewInit{
 
     const map = new mapboxgl.Map({
       container: this.mapDivElement.nativeElement,
-      style: 'mapbox://styles/nahumlopz/clt1r5k1e01tc01qj8vbd1ra0', 
+      style: 'mapbox://styles/nahumlopz/cltkmkcn601oz01qu0d6bh18e', 
       center: this.placesService.userLocation, 
       zoom: 14,
       pitch: 30,

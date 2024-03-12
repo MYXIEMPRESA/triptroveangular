@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, doc, deleteDoc, onSnapshot , getFirestore} from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, doc, deleteDoc, onSnapshot, query, startAfter, limit } from '@angular/fire/firestore';
 import { Storage, ref, uploadBytes, listAll, getDownloadURL, getStorage } from '@angular/fire/storage';
 import { Observable, Subject } from 'rxjs';
 import Place from '../interfaces/place.interface';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlacesService {
 
-    private placesSubject = new Subject<Place[]>();
-    places$: Observable<Place[]> = this.placesSubject.asObservable();  
+  private placesSubject = new Subject<Place[]>();
+  places$: Observable<Place[]> = this.placesSubject.asObservable();
+  private lastDocument: any;
 
-  constructor(private firestore: Firestore) { 
+  constructor(private firestore: Firestore) {
     this.subscribeToPlacesChanges();
   }
 
@@ -24,6 +24,7 @@ export class PlacesService {
 
   private subscribeToPlacesChanges() {
     const placeRef = collection(this.firestore, 'places');
+  
     onSnapshot(placeRef, (querySnapshot) => {
       const places: Place[] = [];
       querySnapshot.forEach((doc) => {
@@ -34,10 +35,11 @@ export class PlacesService {
         };
         places.push(place);
       });
-
+  
       this.placesSubject.next(places);
     });
   }
+  
   
   deletePlace(place: Place) {
     const placeDocRef = doc(this.firestore, `places/${place.id}`);
@@ -51,5 +53,4 @@ export class PlacesService {
     const downloadURL = await getDownloadURL(storageRef);
     return downloadURL;
   }
-
 }
