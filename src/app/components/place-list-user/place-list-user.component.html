@@ -1,41 +1,27 @@
-<!-- Sección para mostrar la lista de lugares -->
-<div class="places">
-  <div class="place" *ngFor="let place of places" (click)="showModal(place)">
-    <!-- Imagen del lugar -->
-    <div class="image" [ngStyle]="{ backgroundImage: 'url(' + place.imageURL + ')' }"></div>
-    
-    <!-- Información del lugar -->
-    <div class="info">
-      <h4>{{ place.name }}</h4>
-      <p>{{ place.description }}</p>
-      
-      <!-- Categorías del lugar, si las hay -->
-      <div *ngIf="place.categories && place.categories.length > 0">
-        <p>Categorías: {{ place.categories.join(', ') }}</p>
+<div *ngFor="let categoryGroup of categorizedPlaces">
+  <h2>{{ categoryGroup.category }}</h2>
+  <div class="places">
+    <div class="place" *ngFor="let place of categoryGroup.places" (click)="showModal(place)">
+      <div class="image" [ngStyle]="{ backgroundImage: 'url(' + place.imageURL + ')' }"></div>
+      <div class="info">
+        <h4>{{ place.name }}</h4>
+        <p>{{ place.description }}</p>
+        <div *ngIf="place.categories && place.categories.length > 0">
+          <p>Categorías: {{ place.categories.join(', ') }}</p>
+        </div>
+        <div *ngIf="!place.categories || place.categories.length === 0">
+          <p>Sin categorías</p>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Sección del modal para mostrar detalles del lugar seleccionado -->
-<div class="modal" *ngIf="selectedPlace" (click)="closeModal()">
+<div *ngIf="isModalOpen" class="modal" (click)="closeModal()">
   <div class="modal-content" (click)="stopPropagation($event)">
-    
-    <!-- Imagen del lugar seleccionado -->
     <div class="modal-image" [ngStyle]="{ backgroundImage: 'url(' + selectedPlace.imageURL + ')' }"></div>
-    
-    <!-- Información del lugar seleccionado -->
-    <div class="modal-info">
-      <h4>{{ selectedPlace.name }}</h4>
-      <p>{{ selectedPlace.description }}</p>
-      
-      <!-- Categorías del lugar seleccionado, si las hay -->
-      <div *ngIf="selectedPlace.categories && selectedPlace.categories.length > 0">
-        <p>Categorías: {{ selectedPlace.categories.join(', ') }}</p>
-      </div>
-    </div>
-    
-    <!-- Botón para cerrar el modal -->
+    <h2>{{ selectedPlace.name }}</h2>
+    <p>{{ selectedPlace.description }}</p>
     <button (click)="closeModal()">Cerrar</button>
   </div>
 </div>

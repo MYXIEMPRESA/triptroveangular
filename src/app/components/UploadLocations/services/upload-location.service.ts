@@ -11,7 +11,7 @@ export class PlacesService {
 
   private placesSubject = new Subject<Place[]>();
   places$: Observable<Place[]> = this.placesSubject.asObservable();
-  private lastDocument: any;
+  getAllPlaces: any;
 
   constructor(private firestore: Firestore) {
     this.subscribeToPlacesChanges();

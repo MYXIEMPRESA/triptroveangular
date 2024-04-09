@@ -21,6 +21,7 @@ import { AdminPlaceComponent } from './components/admin-place/admin-place.compon
 import { PlaceListUserComponent } from './components/place-list-user/place-list-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommentsComponent } from './components/comments/comments.component';
+import { SearchBardComponent } from './components/search-bard/search-bard.component';
 
 
 
@@ -34,6 +35,7 @@ import { CommentsComponent } from './components/comments/comments.component';
     AdminPlaceComponent,
     PlaceListUserComponent,
     CommentsComponent,
+    SearchBardComponent,
   ],
   imports: [
     BrowserModule,

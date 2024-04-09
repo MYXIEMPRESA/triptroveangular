@@ -1,36 +1,37 @@
 <head>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-</head><body>
+</head>
+
+<body>
   <div class="login-wrapper">
-    <h1>Iniciar Sesión</h1>
+    <h1>Sing in</h1>
 
     <div class="input-box">
-      <label for="usuario">Usuario</label>
-      <input type="text" name="usuario" id="usuario"  [(ngModel)]="usuario" required>
+      <label for="usuario">Your email</label>
+      <input type="text" name="usuario" id="usuario"  [(ngModel)]="usuario" required placeholder="example@example.com">
       <i class='bx bxs-user'></i>
     </div>
 
     <div class="input-box">
-      <label for="contrasenia">Contraseña</label>
-      <input type="password" name="contrasenia" id="contrasenia" [(ngModel)]="contrasenia" required>
+      <label for="contrasenia">Password</label>
+      <input type="password" name="contrasenia" id="contrasenia" [(ngModel)]="contrasenia" required placeholder="Enter your password">
       <i class='bx bxs-lock-alt'></i>
     </div>
 
-    <button type="button" class="btn" (click)="iniciarSesion()">Iniciar sesión</button>
+    <button type="button" class="btn" (click)="iniciarSesion()">Sing in</button>
 
     <button type="button" class="google-btn" (click)="iniciarSesionConGoogle()">
       <div class="google-icon">
         <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="google logo">
       </div>
-      <span>Iniciar sesión con Google</span>
+      <span class="google-text">Sing in with google</span>
     </button>
 
     <div class="register-link">
-      <p>¿No tienes una cuenta? <a routerLink="/sign-up">Registro</a></p>
+      <p>You do not have an account? <a routerLink="/sign-up">Sing up for TripTrove</a></p>
     </div>
-      <button class="back-button" (click)="regresarInicio()">
-        <span class="material-icons">arrow_back_ios_new</span> Volver
-      </button>
-    
   </div>
+  <button class="back-button" (click)="regresarInicio()">
+    <span class="material-icons">arrow_back_ios_new</span> Return
+  </button>
 </body>

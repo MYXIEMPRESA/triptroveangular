@@ -6,25 +6,65 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  max-height: 100vh;
+  display: flex;
+  justify-content: flex-start; /* Mueve el contenido a la izquierda */
+  align-items: center; /* Centra verticalmente */
+  height: 100vh; /* Establece la altura del cuerpo al 100% del viewport */
   overflow: hidden; /* Evitará el desplazamiento vertical cuando el contenido sea más grande que la pantalla */
 }
 
 .login-wrapper {
-  height: 700px;
-  max-width: 400px;
-  margin: 200px auto; /* Alinea el wrapper al centro horizontalmente */
+  max-width: 600px;
   padding: 20px;
-  border: 1px solid #ccc;
+  margin: 20%; /* Agrega un margen de 20px alrededor del formulario */
+  border: 1px solid #85858577;
   border-radius: 11px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.247);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
+.back-button {
+  position: absolute; /* Hace que el botón sea de posicionamiento absoluto */
+  top: 2%; /* Lo coloca 5% desde la parte superior */
+  right: 0px; /* Lo coloca 5% desde el lado derecho */
+  z-index: 9999; /* Ajusta el índice z para asegurarte de que esté por encima del contenido */
+  display: flex; /* Hace que el contenido dentro del botón sea en línea */
+  align-items: center; /* Alinea verticalmente el contenido */
+  padding: 5px, ; /* Ajusta el padding para que sea similar al de los otros botones */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #000; /* Color del texto */
+  font-size: 150%;
+  font-weight: bold; /* Hace que el texto sea más marcado */
+}
+
+.back-button .material-icons {
+  margin-right: 5px; /* Añade un pequeño espacio entre el icono y el texto */
+}
+
+
 .login-wrapper h1 {
   align-self: center;
   justify-self: center;
+}
+
+/* Estilos para los campos de entrada */
+.input-box input::placeholder {
+  color: #c0c0c0; /* Cambia el color del texto de ejemplo */
+}
+
+/* Estilos para el texto dentro del botón de Google */
+.google-text {
+  margin-top: auto; /* Agrega un pequeño espacio entre el icono y el texto */
+}
+
+/* Centra el texto dentro del botón de Google */
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra horizontalmente */
 }
 
 .input-box,
@@ -47,7 +87,7 @@ input,
 .back-button {
   width: 100%;
   padding: 10px; /* Ajusta el padding para que sea similar al del botón de iniciar sesión */
-  border: 1px solid #ccc;
+  border: 1px solid #757575;
   border-radius: 4px;
   box-sizing: border-box;
   cursor: pointer;
@@ -66,12 +106,11 @@ input,
 }
 
 .back-button {
-  background-color: #000000;
   padding: 5px 10px; /* Ajusta el padding para que sea similar al de los otros botones */
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  color: #fff; /* Color del texto */
+  color: #000; /* Color del texto */
 }
 
 /* Estilos adicionales según necesidades */
