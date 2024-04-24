@@ -22,7 +22,7 @@ import { PlaceListUserComponent } from './components/place-list-user/place-list-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommentsComponent } from './components/comments/comments.component';
 import { SearchBardComponent } from './components/search-bard/search-bard.component';
-
+import { AsociateComponent } from './components/asociate/asociate.component';
 
 
 @NgModule({
@@ -36,6 +36,8 @@ import { SearchBardComponent } from './components/search-bard/search-bard.compon
     PlaceListUserComponent,
     CommentsComponent,
     SearchBardComponent,
+    AsociateComponent,
+
   ],
   imports: [
     BrowserModule,

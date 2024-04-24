@@ -1,35 +1,38 @@
 <head>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
+
 <body>
   <div class="login-wrapper">
-    <h1>Sign Up</h1>
+    <h1>Sing Up</h1>
 
     <div class="input-box">
-      <label for="email">Your email</label>
-      <input type="email" name="email" id="email" [(ngModel)]="email" required>
+      <label for="usuario">Your email</label>
+      <input type="text" name="usuario" id="usuario"  [(ngModel)]="email" required placeholder="example@example.com">
+      <i class='bx bxs-user'></i>
     </div>
 
     <div class="input-box">
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" [(ngModel)]="password" required>
+      <label for="contrasenia">Password</label>
+      <input type="password" name="contrasenia" id="contrasenia" [(ngModel)]="password" required placeholder="Enter your password">
+      <i class='bx bxs-lock-alt'></i>
     </div>
 
-    <button type="button" class="btn" (click)="signUp()">Sign Up</button>
+    <button type="button" class="btn" (click)="signUp()">Sing in</button>
 
     <button type="button" class="google-btn" (click)="registerWithGoogle()">
       <div class="google-icon">
         <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="google logo">
       </div>
-      <span>Sign Up with Google</span>
+      <span class="google-text">Sing in with google</span>
     </button>
 
     <div class="register-link">
-      <p>Already have an account? <a routerLink="/login">Log In</a></p>
+      <p>You have an account?      <a routerLink="/SingIn">Sing in for TripTrove</a></p>
     </div>
-
-    <button class="back-button" (click)="goBack()">
-      <span class="material-icons">arrow_back_ios_new</span> Volver
-    </button>
   </div>
+  <button class="back-button" (click)="goBack()">
+    <span class="material-icons">arrow_back_ios_new</span> Return
+  </button>
 </body>
+

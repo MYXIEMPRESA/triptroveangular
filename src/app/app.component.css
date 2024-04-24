@@ -1,0 +1,61 @@
+
+/* Agrega estilos para la sección de contacto */
+.contact-section {
+    background-color: rgb(32, 32, 32);
+    color: white;
+    padding: 50px;
+    text-align: center;
+    height: 30vh;
+    /* Cambiado a auto para adaptarse al contenido */
+  }
+  
+  .company-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    flex-wrap: wrap;
+    /* Añadido para manejar el contenido en dispositivos pequeños */
+  }
+  
+  .company-info img {
+    max-width: 200px;
+    margin-right: 35px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+  }
+  
+  .text-info,
+  .Myxi-text-info {
+    flex: 1;
+    max-width: 60%;
+    /* Ajusta según sea necesario */
+  }
+  
+  .team-member,
+  .Myxi-text-info {
+    margin-top: 5px;
+    margin-left: 65px;
+  }
+  
+  .text-info h2,
+  .team-member h3,
+  .Myxi-text-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  .text-info p,
+  .team-member p,
+  .Myxi-text-info p {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #ffffff;
+  }
+  
+  .team-member a,
+  .Myxi-text-info a {
+    color: #ffffff;
+  }
+  

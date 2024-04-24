@@ -1,0 +1,284 @@
+/* Estilos generales */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    margin-top: 100px; /* Ajusta el valor según la altura de tu header */
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.9s;
+    padding: 40px 100px;
+    z-index: 100000;
+    font-size: 18px;
+  }
+
+  /* Estilo por defecto del header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    transition: background-color 0.5s ease;
+}
+
+/* Estilo del header cuando se activa la clase 'scrolled' */
+header.scrolled {
+    background-color: #000000; /* Cambia el color de fondo a negro */
+}
+
+header.scrolled .logo,
+header.scrolled ul li a {
+    color: #ffffff; /* Cambia el color del texto a blanco */
+}
+  
+  header.sticky .login {
+    color: #ffffff;
+  }
+  
+  /* Agrega esta regla CSS para cambiar el color del enlace "ANDROID" */
+  header.sticky .nav li:nth-child(2) a {
+    color: #ffffff;
+  }
+  
+  header.sticky {
+    padding: 5px 100px;
+    background: #000000;
+  }
+  
+  header.sticky .logo,
+  header.sticky ul li a {
+    color: #ffffff;
+  }
+  
+  header .logo {
+    position: relative;
+    font-weight: 700;
+    color: #000000;
+    text-decoration: none;
+    font-size: 2em;
+    letter-spacing: 2px;
+    transition: 0.6s;
+  }
+  
+  header ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  header ul li {
+    position: relative;
+    list-style: none;
+  }
+  
+  header ul li a {
+    position: relative;
+    margin: 0 15px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    letter-spacing: 2px;
+    font-weight: 500;
+    transition: 0.5s;
+    overflow: hidden;
+  }
+  
+  header ul li a::before,
+  header ul li a::after {
+    content: "";
+    position: absolute;
+    width: 120%;
+    /* Ajusta el ancho del subrayado aquí */
+    height: 3px;
+    /* Ajusta el grosor del subrayado aquí */
+    background-color: #000;
+    z-index: -1;
+    transition: transform 0.8s;
+    border-radius: 5px;
+    /* Ajusta el radio del borde aquí */
+  }
+  
+  header ul li a::before {
+    top: 0;
+    left: -10%;
+    /* Ajusta el desplazamiento del subrayado aquí */
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  
+  header ul li a::after {
+    bottom: 0;
+    right: -10%;
+    /* Ajusta el desplazamiento del subrayado aquí */
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  
+  header ul li a:hover {
+    color: #000000;
+  }
+  
+  header ul li a:hover::before,
+  header ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: center;
+  }
+
+  
+  
+nav ul {
+    padding: 0;
+    list-style: none;
+    text-align: right;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Estilos para la sección hero */
+
+.hero {
+    background-color: #f2f2f2;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    margin: 0;
+}
+
+.search-bar {
+    margin-top: 20px;
+}
+
+.search-bar input {
+    width: 40%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilos para la sección de categorías */
+
+.categories {
+    background-color: #fff;
+    padding: 50px 0;
+}
+
+.categories h2 {
+    margin: 0;
+}
+
+.categories ul {
+    padding: 0;
+    list-style: none;
+}
+
+.categories ul li {
+    margin-bottom: 10px;
+}
+
+.categories ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Estilos para la sección de listados destacados */
+
+.featured {
+    padding: 50px 0;
+}
+
+.featured h2 {
+    margin: 0;
+}
+
+.listings {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.listing {
+    width: 30%;
+    margin-bottom: 30px;
+}
+
+.listing img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.listing h3 {
+    margin: 10px 0;
+}
+
+.listing p {
+    color: #666;
+}
+
+.listing a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Estilos para el pie de página */
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer ul {
+    padding: 0;
+    list-style: none;
+}
+
+footer ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}

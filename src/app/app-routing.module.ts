@@ -10,17 +10,20 @@ import { DownloadComponent } from './components/download/download.component';
 import { MapScreenComponent } from './components/maps/screens/map-screen/map-screen.component';
 import { AdminPlaceComponent } from './components/admin-place/admin-place.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import { AsociateComponent } from './components/asociate/asociate.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'download', component: DownloadComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'sign-up', component: SignUpComponent },
+  { path: 'SingIn', component: LoginComponent },
+  { path: 'SingUp', component: SignUpComponent },
   { path: 'about', component: AboutComponent},
+  { path: 'association', component: AsociateComponent},
   { path: 'maps', component: MapScreenComponent, canActivate: [AuthGuard]  },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'admin-place', component: AdminPlaceComponent, canActivate: [AuthGuard]},
   { path: 'comments', component: CommentsComponent, canActivate: [AuthGuard]},
+  
 ];
 
 @NgModule({

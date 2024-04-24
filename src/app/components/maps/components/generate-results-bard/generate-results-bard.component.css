@@ -1,0 +1,96 @@
+/* Estilos base */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    position: relative;
+    /* Agregado para permitir la posición absoluta del botón */
+}
+
+/* Estilos del sidebar */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
+    z-index: 1;
+    transition: width 0.3s ease; /* Añadida transición para la anchura */
+    padding-top: 20px; /* Agregado para dejar espacio arriba para el botón */
+}
+
+#sidebar.collapsed {
+    width: 0; /* Anchura contraída */
+    overflow: hidden; /* Oculta el contenido cuando se colapsa */
+}
+
+#sidebar-content {
+    padding: 20px;
+    transition: padding 0.3s ease; /* Añadida transición para el padding */
+}
+
+#sidebar.collapsed #sidebar-content {
+    padding: 0; /* Ajusta el padding cuando el sidebar está contraído */
+}
+
+#content {
+    margin-left: 25px;
+    min-width: 300px;
+    padding: 20px;
+    transition: margin-left 0.3s ease; /* Añade una transición para el margen izquierdo */
+}
+
+#content.collapsed {
+    margin-left: 0; /* Ajusta el margen izquierdo cuando el sidebar está contraído */
+}
+
+.content-section {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 500px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos del botón de alternar */
+#toggle-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    padding: 5px;
+    background-color: transparent;
+    color: #333;
+    border: none;
+    border-radius: 3px;
+    z-index: 2;
+    transition: left 0.3s ease;
+    /* Añade una transición para la posición del botón */
+}
+
+#sidebar.collapsed #toggle-btn {
+    left: 10px;
+    /* Ajusta la posición cuando el sidebar está contraído */
+}
+
+/* Estilos adicionales para hacer el diseño más responsivo */
+@media only screen and (max-width: 768px) {
+    #sidebar {
+        width: 200px; /* Reduce el ancho del sidebar en dispositivos más pequeños */
+    }
+
+    #content {
+        margin-left: 200px; /* Ajusta el margen izquierdo para dar espacio al sidebar */
+    }
+
+    #sidebar.collapsed {
+        width: 0; /* Asegura que el sidebar esté contraído en dispositivos más pequeños */
+    }
+
+    #content.collapsed {
+        margin-left: 0; /* Ajusta el margen izquierdo cuando el sidebar está contraído en dispositivos más pequeños */
+    }
+}

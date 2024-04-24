@@ -9,7 +9,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { LoadingComponent } from './components/loading/loading.component';
 import { UbicationRangeComponent } from './components/ubication-range/ubication-range.component';
 import { FormsModule } from '@angular/forms';
-import { RequestDocsComponent } from './components/request-docs/request-docs.component';
+import { GenerateResultsBardComponent } from './components/generate-results-bard/generate-results-bard.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { RequestDocsComponent } from './components/request-docs/request-docs.com
     SearchBarComponent,
     SearchResultsComponent,
     UbicationRangeComponent,
-    RequestDocsComponent
+    GenerateResultsBardComponent
   ],
   imports: [
     CommonModule,

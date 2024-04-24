@@ -1,85 +1,142 @@
 body {
-    background-image: url('../../../assets/images/fondoLogin.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    max-height: 100vh;
-    overflow: hidden;
-  }
-  
+  background-image: url('fondoLogin.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start; /* Mueve el contenido a la izquierda */
+  align-items: center; /* Centra verticalmente */
+  height: 100vh; /* Establece la altura del cuerpo al 100% del viewport */
+  overflow: hidden; /* Evitará el desplazamiento vertical cuando el contenido sea más grande que la pantalla */
+}
+
+.login-wrapper {
+  max-width: 600px;
+  min-width: 425px;
+  padding: 20px;
+  margin: 20%; /* Agrega un margen de 20px alrededor del formulario */
+  border: 1px solid #85858577;
+  border-radius: 11px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.247);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.back-button {
+  position: absolute; /* Hace que el botón sea de posicionamiento absoluto */
+  top: 2%; /* Lo coloca 5% desde la parte superior */
+  right: 0px; /* Lo coloca 5% desde el lado derecho */
+  z-index: 9999; /* Ajusta el índice z para asegurarte de que esté por encima del contenido */
+  display: flex; /* Hace que el contenido dentro del botón sea en línea */
+  align-items: center; /* Alinea verticalmente el contenido */
+  padding: 5px, ; /* Ajusta el padding para que sea similar al de los otros botones */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #000; /* Color del texto */
+  font-size: 150%;
+  font-weight: bold; /* Hace que el texto sea más marcado */
+}
+
+.back-button .material-icons {
+  margin-right: 5px; /* Añade un pequeño espacio entre el icono y el texto */
+}
+
+
+.login-wrapper h1 {
+  align-self: center;
+  justify-self: center;
+}
+
+/* Estilos para los campos de entrada */
+.input-box input::placeholder {
+  color: #c0c0c0; /* Cambia el color del texto de ejemplo */
+}
+
+/* Estilos para el texto dentro del botón de Google */
+.google-text {
+  margin-top: auto; /* Agrega un pequeño espacio entre el icono y el texto */
+}
+
+/* Centra el texto dentro del botón de Google */
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra horizontalmente */
+}
+
+.input-box,
+.btn,
+.google-btn,
+.back-button {
+  width: 100%; /* Ajusta el ancho para que sea igual al de los campos de entrada */
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input,
+.btn,
+.google-btn,
+.back-button {
+  width: 100%;
+  padding: 10px; /* Ajusta el padding para que sea similar al del botón de iniciar sesión */
+  border: 1px solid #646464;
+  border-radius: 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+}
+
+.google-icon img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px; /* Espacio entre el logo y el texto del botón */
+}
+
+.back-button {
+  padding: 5px 10px; /* Ajusta el padding para que sea similar al de los otros botones */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #000; /* Color del texto */
+}
+
+/* Estilos adicionales según necesidades */
+.register-link {
+  margin-top: 10px;
+}
+
+/* Media query para hacer el formulario responsive */
+@media (max-width: 600px) {
   .login-wrapper {
-    height: 700px;
-    max-width: 400px;
-    margin: 200px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 11px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.247);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    max-width: 100%;
   }
-  
-  .login-wrapper h1 {
-    align-self: center;
-    justify-self: center;
-  }
-  
-  .input-box,
-  .btn,
-  .google-btn,
-  .back-button {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  input,
-  .btn,
-  .google-btn,
-  .back-button {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    cursor: pointer;
-    text-align: center;
-  }
-  
-  .google-btn {
-    display: flex;
-    align-items: center;
-  }
-  
-  .google-icon img {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-  }
-  
-  .back-button {
-    background-color: #000000;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    color: #fff;
-  }
-  
-  .register-link {
-    margin-top: 10px;
-  }
-  
-  @media (max-width: 600px) {
-    .login-wrapper {
-      max-width: 100%;
-    }
-  }
+} 
+
+.input-box input {
+  background-color: rgba(255, 255, 255, 0.5); /* Color de fondo transparente */
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #757575;
+  border-radius: 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5); /* Color de fondo transparente */
+}

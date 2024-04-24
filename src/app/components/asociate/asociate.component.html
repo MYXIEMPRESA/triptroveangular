@@ -1,0 +1,91 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ListRace</title>
+</head>
+<body>
+    <header>
+        <a class="logo">TripTrove</a>
+        <ul class="nav">
+          <li><a href="/about">ACERCA DE</a></li>
+          <li><a href="/download">ANDROID</a></li>
+          <li><a href="/association">ASOCIATE</a></li>
+        </ul>
+        <a class="login" href="/SingIn">INGRESAR</a>
+      </header>
+    <section class="hero">
+        <div class="container">
+            <h2>BEST PLACE TO FIND AND EXPLORE<br>THAT ALL YOU NEED</h2>
+            <p>Find Best Place, Restaurant, Hotel, Real State and many more think in just One click</p>
+            <form action="#">
+                <div class="search-bar">
+                    <input type="text" placeholder="What? Ex: Paice, Resturent, Food, Automobile">
+                    <input type="text" placeholder="Location Ex: London, Newyoric Rome">
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="container">
+            <h2>Categories</h2>
+            <ul>
+                <li><a href="#">Restaurants</a></li>
+                <li><a href="#">Hotels</a></li>
+                <li><a href="#">Real Estate</a></li>
+                <li><a href="#">Attractions</a></li>
+                <li><a href="#">Shopping</a></li>
+                <li><a href="#">More</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="featured">
+        <div class="container">
+            <h2>Featured Listings</h2>
+            <div class="listings">
+                <div class="listing">
+                    <img src="images/listing1.jpg" alt="Listing 1">
+                    <h3>Listing Title 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed semper enim vitae leo pulvinar, sit amet tincidunt ipsum pharetra.</p>
+                    <a href="#">View Listing</a>
+                </div>
+                <div class="listing">
+                    <img src="images/listing2.jpg" alt="Listing 2">
+                    <h3>Listing Title 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed semper enim vitae leo pulvinar, sit amet tincidunt ipsum pharetra.</p>
+                    <a href="#">View Listing</a>
+                </div>
+                <div class="listing">
+                    <img src="images/listing3.jpg" alt="Listing 3">
+                    <h3>Listing Title 3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed semper enim vitae leo pulvinar, sit amet tincidunt ipsum pharetra.</p>
+                    <a href="#">View Listing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ListRace</p>
+            <ul>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+<script>
+    window.onscroll = function () { scrollFunction() };
+  
+    function scrollFunction() {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        document.querySelector("header").classList.add("sticky");
+      } else {
+        document.querySelector("header").classList.remove("sticky");
+      }
+    }
+  </script>

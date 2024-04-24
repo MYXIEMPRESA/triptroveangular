@@ -1,0 +1,27 @@
+<div id="sidebar" [ngClass]="{'collapsed': isCollapsed}">
+    <div id="sidebar-content">
+        <h2>Rutas, generadas para ti.</h2>
+        <form (submit)="submitForm()">
+            <label for="startLocation">Ubicación inicial:</label>
+            <input type="text" id="startLocation" name="startLocation" [(ngModel)]="startLocation">
+            <label for="endLocation">Ubicación final:</label>
+            <input type="text" id="endLocation" name="endLocation" [(ngModel)]="endLocation">
+            <label for="departureTime">Hora de salida:</label>
+            <input type="time" id="departureTime" name="departureTime" [(ngModel)]="departureTime">
+            <button type="submit">Generar Recorrido</button>
+        </form>
+    </div>
+    <div id="content">
+        <div class="content-section" [ngClass]="{'collapsed': isCollapsed}">
+            <h2>Contenido Principal</h2>
+            <p *ngIf="routeInfo">{{ routeInfo.ubicacion }}</p>
+            <p *ngIf="routeInfo">{{ routeInfo.hora }}</p>
+            <p *ngIf="routeInfo">{{ routeInfo.tiempo_recorrido }}</p>
+            <p *ngIf="routeInfo">{{ routeInfo.costo }}</p>
+            <p *ngIf="routeInfo && routeInfo.estado === 'ok'">¡La información del recorrido está lista!</p>
+        </div>
+    </div>
+</div>
+<button id="toggle-btn" (click)="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+</button>

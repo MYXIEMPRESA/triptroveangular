@@ -31,7 +31,6 @@ header.sticky .tripTrove {
     text-align: center;
 }
 
-
 .botoncillo {
     border: 1px solid #ddd;
     margin: 10px;
@@ -358,8 +357,6 @@ header.sticky ul li a {
 }
 
 
-
-
 .scroll div {
     white-space: nowrap;
     animation: animate var(--t) linear infinite;
@@ -504,3 +501,74 @@ button img {
     /* Centra el contenido dentro del contenedor */
     /* Agrega más estilos según tus necesidades */
 }
+header,
+.sidebar {
+    position: fixed;
+    top: 0;
+}
+
+header {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 100px;
+    z-index: 100000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+    left: 0;
+    width: 200px;
+    height: 100%;
+    margin-top: 80px; /* Iguala la altura del header */
+    background-color: #f9f9f9;
+    border-right: 2px solid #000000;
+    padding: 20px;
+    margin-right: 20px; /* Agrega un margen derecho para dejar espacio para el carrusel */
+    overflow-y: auto; /* Agrega desplazamiento vertical a la barra lateral si es necesario */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 0;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #dddddd;
+}
+
+.sidebar-bottom {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 160px;
+}
+
+.main-content {
+    margin-left: 220px; /* Ajusta el margen izquierdo para dejar espacio para el sidebar */
+    padding: 20px;
+    overflow-y: auto; /* Agrega desplazamiento vertical al contenido principal si es necesario */
+    max-width: calc(100% - 220px); /* El ancho máximo es el ancho total menos el ancho del sidebar */
+    width: calc(100% - 240px); /* El ancho total menos el ancho de la barra lateral y el margen derecho */
+}
+
+@media (max-width: 1200px) {
+    .main-content {
+        margin-left: 0; /* Cuando la pantalla es más estrecha, evita que el contenido principal se superponga al sidebar */
+    }
+}
+
