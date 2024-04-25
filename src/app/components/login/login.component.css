@@ -1,3 +1,123 @@
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.9s;
+  padding: 40px 100px;
+  z-index: 100000;
+  font-size: 18px;
+}
+
+header.sticky .login {
+  color: #ffffff;
+}
+
+/* Agrega esta regla CSS para cambiar el color del enlace "ANDROID" */
+header.sticky .nav li:nth-child(2) a {
+  color: #ffffff;
+}
+
+header.sticky {
+  padding: 5px 100px;
+  background: #000000;
+}
+
+header.sticky .logo,
+header.sticky ul li a {
+  color: #ffffff;
+}
+
+header .logo {
+  position: relative;
+  font-weight: 700;
+  color: #000000;
+  text-decoration: none;
+  font-size: 2em;
+  letter-spacing: 2px;
+  transition: 0.6s;
+}
+
+header ul {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header ul li {
+  position: relative;
+  list-style: none;
+}
+
+header ul li a {
+  position: relative;
+  margin: 0 15px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  letter-spacing: 2px;
+  font-weight: 500;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+header .login{
+  position: relative;
+  margin: 0 15px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  letter-spacing: 2px;
+  font-weight: 500;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+
+header ul li a::before,
+header ul li a::after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  /* Ajusta el ancho del subrayado aquí */
+  height: 3px;
+  /* Ajusta el grosor del subrayado aquí */
+  background-color: #000;
+  z-index: -1;
+  transition: transform 0.8s;
+  border-radius: 5px;
+  /* Ajusta el radio del borde aquí */
+}
+
+header ul li a::before {
+  top: 0;
+  left: -10%;
+  /* Ajusta el desplazamiento del subrayado aquí */
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+header ul li a::after {
+  bottom: 0;
+  right: -10%;
+  /* Ajusta el desplazamiento del subrayado aquí */
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+header ul li a:hover {
+  color: #000000;
+}
+
+header ul li a:hover::before,
+header ul li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: center;
+}
+
 body {
   background-image: url('fondoLogin.jpg');
   background-size: cover;
@@ -25,21 +145,6 @@ body {
   -webkit-backdrop-filter: blur(10px);
 }
 
-.back-button {
-  position: absolute; /* Hace que el botón sea de posicionamiento absoluto */
-  top: 2%; /* Lo coloca 5% desde la parte superior */
-  right: 0px; /* Lo coloca 5% desde el lado derecho */
-  z-index: 9999; /* Ajusta el índice z para asegurarte de que esté por encima del contenido */
-  display: flex; /* Hace que el contenido dentro del botón sea en línea */
-  align-items: center; /* Alinea verticalmente el contenido */
-  padding: 5px, ; /* Ajusta el padding para que sea similar al de los otros botones */
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  color: #000; /* Color del texto */
-  font-size: 150%;
-  font-weight: bold; /* Hace que el texto sea más marcado */
-}
 
 .back-button .material-icons {
   margin-right: 5px; /* Añade un pequeño espacio entre el icono y el texto */

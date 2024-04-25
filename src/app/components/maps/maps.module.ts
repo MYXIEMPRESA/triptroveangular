@@ -25,7 +25,8 @@ import { GenerateResultsBardComponent } from './components/generate-results-bard
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+
   ]
 })
 export class MapsModule { }
