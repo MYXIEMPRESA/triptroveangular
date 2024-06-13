@@ -3,8 +3,6 @@ import Typed from 'typed.js';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
-  imports: [],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

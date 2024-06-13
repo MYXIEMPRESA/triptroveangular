@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #000000;
+  text-decoration: none;
+}
 
 header {
   position: fixed;
@@ -119,7 +127,7 @@ header ul li a:hover::after {
 }
 
 body {
-  background-image: url('fondoLogin.jpg');
+  background-image: url('../../../assets//images/fondoLogin.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

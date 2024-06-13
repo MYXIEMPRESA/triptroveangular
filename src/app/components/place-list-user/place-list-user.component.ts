@@ -46,7 +46,7 @@ export class PlaceListUserComponent {
 
   closeModal(): void {
     this.selectedPlace = null;
-    this.isModalOpen = false; // Cerrar la modal
+    this.isModalOpen = false;
     document.body.style.overflow = 'auto'; 
   }
 

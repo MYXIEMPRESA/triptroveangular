@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.example.app',
-  appName: 'fireauth-angular-test',
+  appId: 'com.triptrove.app',
+  appName: 'TripTroveAngular',
   webDir: 'dist/fireauth-angular-test',
   server: {
     androidScheme: 'https'

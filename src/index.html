@@ -5,85 +5,14 @@
   <title>TripTrove</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image" href="/src/assets/images/logo.png">
-  <style>footer {
-    background-color: #333; /* Un gris claro, típico de los diseños modernos */
-    color: #fff; /* Color de texto oscuro para contraste */
-    padding: 20px 0; /* Espaciado superior e inferior */
-    font-family: Arial, sans-serif; /* Fuente genérica y limpia */
-  }
-  
-  /* Contenedor de información de la compañía */
-  .footer .company-info {
-    display: flex;
-    justify-content: space-around; /* Distribuye el espacio entre elementos de forma equitativa */
-    align-items: flex-start; /* Alinea elementos al inicio verticalmente */
-    padding: 20px; /* Espaciado interno */
-  }
-  
-  .footer .text-info,
-  .footer .team-member,
-  .footer .Myxi-text-info {
-    flex: 1; /* Todos toman igual espacio */
-    margin: 0 10px; /* Margen horizontal entre columnas */
-  }
-  
-  .footer h2, .footer h3 {
-    color: #007bff; /* Un azul brillante para títulos, para atraer atención */
-  }
-  
-  .footer p {
-    margin: 10px 0; /* Espaciado vertical entre párrafos */
-    line-height: 1.6; /* Espaciado entre líneas de texto */
-  }
-  
-  .footer a {
-    color: #007bff; /* Enlaces en el mismo azul que los títulos */
-    text-decoration: none; /* Elimina subrayado de enlaces */
-  }
-  
-  .footer a:hover {
-    text-decoration: underline; /* Subraya enlaces al pasar el mouse */
-  }
-  
-  /* Estilo específico para el logo */
-  .footer img {
-    max-width: 100px; /* Limita el tamaño del logo */
-    margin-top: 10px; /* Espacio sobre el logo */
-  }
-  </style>
 </head>
 <body>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link href='https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css' rel='stylesheet' />      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <div class="loader-wrapper" id="loaderWrapper">
+    <div class="loader"></div>
+    <script>
+      window.onload = function() {
+      document.getElementById("loaderWrapper").style.display = "none";};</script>
+  </div>
   <app-root></app-root>
-  <footer class="footer">
-    <div class="contact-section">
-      <div class="company-info">
-        <div class="text-info">
-          <h2>Sobre Myxitech</h2>
-          <p>Myxitech es una empresa de tecnología dedicada a proporcionar soluciones innovadoras en el ámbito del turismo y
-            la exploración. Nuestra misión es facilitar experiencias de viaje excepcionales a través de herramientas
-            digitales avanzadas.</p>
-        </div>
-        <div class="team-member">
-          <h3>Contactanos</h3>
-          <p>Numero: +52 56 3811 8298</p>
-          <p>Redes Sociales: <a href="https://www.instagram.com/myxitech/" target="_blank">Myxi</a></p>
-        </div>
-        <div class="Myxi-text-info">
-          <h3>Informacion</h3>
-          <p>
-            TripTrove©<br>
-            Terminos y condiciones<br>
-            Privacy<br>
-            Seguridad<br>
-          </p>
-        </div>
-        <img src="../../../assets/images/MyxiLogo.png" alt="Logo de TripTrove">
-      </div>
-    </div>
-  </footer>
-  
 </body>
 </html>
