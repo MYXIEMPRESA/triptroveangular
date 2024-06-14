@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MapService } from '../../services/map.service'; // Asegúrate de tener la ruta correcta
+import { Feature } from '../../interfaces/places';
 
 @Component({
   selector: 'app-generate-results-bard',
@@ -24,53 +25,82 @@ export class GenerateResultsBardComponent {
     }
   }
 
-  toggleSidebar() {
+  toggleSidebar(): void {
     this.isCollapsed = !this.isCollapsed;
   }
 
-  submitForm() {
+  submitForm(): void {
     navigator.geolocation.getCurrentPosition(position => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
+      const userLocation: [number, number] = [longitude, latitude]; // Ubicación del usuario
       this.routeInfoArray = [];
 
       this.temas.forEach(tema => {
-        const url = `http://localhost:5000/museos_cercanos?lat=${latitude}&lon=${longitude}&tema=${tema}`;
+        const url = `http://localhost:5000/museos_cercanos?lat=${latitude}&lon=${longitude}&tipo=${tema}`;
         this.http.get<any[]>(url).subscribe(
           response => {
-            this.routeInfoArray = this.routeInfoArray.concat(response);
+            this.routeInfoArray = [...this.routeInfoArray, ...response];
             this.message = '¡La solicitud se procesó correctamente!';
             console.log('Response from Flask server:', response);
 
-            // Utiliza MapService para crear marcadores
-            if (this.mapService.isMapReady) {
-              response.forEach(museo => {
-                this.mapService.flyTo([museo.longitud, museo.latitud]);
-                this.mapService.createMarkersFromPlaces([{
-                  text: museo.nombre,
-                  place_name: museo.nombre,
-                  center: [museo.longitud, museo.latitud],
-                  id: '',
-                  type: '',
-                  place_type: [],
-                  relevance: 0,
-                  properties: {
-                    mapbox_id: '',
-                    wikidata: '',
-                    short_code: ''
-                  }, // Ajustar según la interfaz real de 'Properties'
-                  text_es: '',
-                  language_es: '',
-                  place_name_es: '',
-                  language: '',
-                  bbox: [],
-                  geometry: {
-                    type: "Point",
-                    coordinates: [museo.longitud, museo.latitud]
-                  },
-                  context: []
-                }], [longitude, latitude]);
-              });
+            if (this.mapService.isMapReady && response.length >= 3) {
+              // Asumiendo que se devuelven al menos 3 museos
+              const museo1 = response[0];
+              const museo2 = response[1];
+              const museo3 = response[2];
+
+              // Crear marcadores y popups para los museos
+              const places: Feature[] = [museo1, museo2, museo3].map(museo => ({
+                text: museo.nombre,
+                place_name: museo.nombre,
+                center: [museo.longitud, museo.latitud],
+                id: '',
+                type: '',
+                place_type: [],
+                relevance: 0,
+                properties: {
+                  mapbox_id: '',
+                  wikidata: '',
+                  short_code: ''
+                },
+                geometry: {
+                  type: "Point",
+                  coordinates: [museo.longitud, museo.latitud]
+                },
+                context: [],
+                text_es: '',
+                language_es: '',
+                place_name_es: '',
+                language: '',
+                bbox: []
+              }));
+
+              this.mapService.createMarkersFromPlaces(places, userLocation);
+
+              // Ruta del usuario al primer museo
+              this.mapService.getRouteBetweenPoints('walking', userLocation, [museo1.longitud, museo1.latitud])
+                .subscribe(route1 => {
+                  this.mapService.drawPolyline(route1, this.mapService.mapSubject.value!, 'route1');
+
+                  // Ruta del primer museo al segundo museo
+                  this.mapService.getRouteBetweenPoints('walking', [museo1.longitud, museo1.latitud], [museo2.longitud, museo2.latitud])
+                    .subscribe(route2 => {
+                      this.mapService.drawPolyline(route2, this.mapService.mapSubject.value!, 'route2');
+
+                      // Ruta del segundo museo al tercer museo
+                      this.mapService.getRouteBetweenPoints('walking', [museo2.longitud, museo2.latitud], [museo3.longitud, museo3.latitud])
+                        .subscribe(route3 => {
+                          this.mapService.drawPolyline(route3, this.mapService.mapSubject.value!, 'route3');
+
+                          // Ruta de regreso al punto de partida desde el tercer museo
+                          this.mapService.getRouteBetweenPoints('walking', [museo3.longitud, museo3.latitud], userLocation)
+                            .subscribe(route4 => {
+                              this.mapService.drawPolyline(route4, this.mapService.mapSubject.value!, 'route4');
+                            });
+                        });
+                    });
+                });
             }
           },
           error => {

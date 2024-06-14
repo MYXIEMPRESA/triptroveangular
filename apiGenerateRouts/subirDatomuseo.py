@@ -8,9 +8,8 @@ def leer_json(nombre_archivo):
         return json.load(file)
 
 # Configuración de Firebase
-cred = credentials.Certificate('triptroveangular-firebase-adminsdk-qt474-ca3ceb258b.json')
+cred = credentials.Certificate('triptroveangular-firebase-adminsdk-qt474-3bdae93670.json')
 firebase_admin.initialize_app(cred)
-
 # Cliente Firestore
 db = firestore.client()
 

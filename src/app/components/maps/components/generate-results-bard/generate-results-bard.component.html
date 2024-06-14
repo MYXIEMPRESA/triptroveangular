@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div id="sidebar" [ngClass]="{'collapsed': isCollapsed}">
     <div id="sidebar-content">
-        <h2>Rutas, generadas para ti.</h2>
+        <h2>Rutas generadas para ti.</h2>
         <form (submit)="submitForm()">
             <label>Tema:</label>
             <div class="form-section">
@@ -37,17 +37,23 @@
         </form>
         <p *ngIf="message">{{ message }}</p>
     </div>
-    <div id="content">
-        <div class="content-section" [ngClass]="{'collapsed': isCollapsed}">
-            <h2>Contenido Principal</h2>
-            <div *ngFor="let result of routeInfoArray" class="result-container">
-                <p>{{ result.nombre }}</p> <!-- Asumiendo que la respuesta tiene 'nombre' -->
-                <p>{{ result.latitud }}, {{ result.longitud }}</p>
-                <p>{{ result.distancia | number: '1.0-2' }} km</p>
-            </div>
-        </div>
-    </div>    
 </div>
+
+<div id="content" [ngClass]="{'collapsed': isCollapsed}">
+    <div *ngFor="let result of routeInfoArray" class="lugar-card">
+        <div class="imagen">
+            <!-- Añadir la imagen aquí si está disponible -->
+            <img src="path_to_image" alt="{{ result.nombre }}">
+        </div>
+        <div class="info">
+            <h3>{{ result.nombre }}</h3>
+            <p>Tiempo: {{ result.tiempo }}</p>
+            <p>Categorías: {{ result.categorias }}</p>
+            <p>Costos: {{ result.costos }}</p>
+        </div>
+    </div>
+</div>
+
 <button id="toggle-btn" (click)="toggleSidebar()">
     <i class="fas fa-bars"></i>
 </button>

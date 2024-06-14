@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { PlacesService } from '../UploadLocations/services';
 import Place from '../UploadLocations/interfaces/place.interface';
 
@@ -7,15 +7,18 @@ import Place from '../UploadLocations/interfaces/place.interface';
   templateUrl: './place-list-user.component.html',
   styleUrls: ['./place-list-user.component.css']
 })
-export class PlaceListUserComponent {
+export class PlaceListUserComponent implements OnInit {
   selectedPlace: any;
   isModalOpen: boolean = false; // Variable para controlar el estado de la modal
   categorizedPlaces: { category: string, places: Place[] }[] = [];
+  loadingMore: boolean = false;
 
   constructor(private placesService: PlacesService) {}
 
   ngOnInit(): void {
     this.placesService.places$.subscribe(places => {
+      if (!places) return;
+
       // Agrupar los lugares por categorías
       const categorizedPlacesMap = new Map<string, Place[]>();
       places.forEach(place => {
@@ -31,10 +34,22 @@ export class PlaceListUserComponent {
   
       // Convertir el mapa a un array para mostrarlo en el HTML
       this.categorizedPlaces = Array.from(categorizedPlacesMap.entries()).map(([category, places]) => {
-        // Limitar la cantidad de lugares por categoría a 5
-        const limitedPlaces = places.slice(0, 5);
-        return { category, places: limitedPlaces };
+        return { category, places };
       });
+    });
+  }
+
+  @HostListener('window:scroll', [])
+  onScroll(): void {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !this.loadingMore) {
+      this.loadingMore = true;
+      this.loadMorePlaces();
+    }
+  }
+
+  loadMorePlaces(): void {
+    this.placesService.loadMorePlaces().then(() => {
+      this.loadingMore = false;
     });
   }
 

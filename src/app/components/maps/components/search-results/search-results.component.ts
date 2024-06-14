@@ -16,7 +16,7 @@ export class SearchResultsComponent {
   ) { }
 
   //variables
-  public transport: String = 'walking';
+  public transport: string = 'walking';
   public selectedId: String = '';
 
   //get and set
@@ -30,13 +30,14 @@ export class SearchResultsComponent {
 
   //metodos
   //direcciones
-  getDirections(transport: String, place: Feature) {
+  getDirections(transport: string, place: Feature) {
     if (!this.placesServices.userLocation) throw Error('No hay userLocation');
     this.placesServices.upPlaces();
     const start = this.placesServices.userLocation;
     const end = place.center as [number, number];
-    this.mapService.getRouteBetweenPoints(transport, start, end)
+    this.mapService.getRouteBetweenPoints(transport, start, end);
   }
+  
 
   //animaciones
   flyto(places: Feature) {

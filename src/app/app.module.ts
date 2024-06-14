@@ -23,6 +23,8 @@ import { SearchBardComponent } from './components/search-bard/search-bard.compon
 import { AsociateComponent } from './components/asociate/asociate.component';
 import { AndroidComponent } from './components/android/android.component';
 import { SettingsUserComponent } from './components/settings-user/settings-user.component';
+import { provideStorage } from '@angular/fire/storage';
+import { getStorage } from 'firebase/storage';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { SettingsUserComponent } from './components/settings-user/settings-user.
     ReactiveFormsModule,
       provideFirebaseApp(() => initializeApp(environment.firebase)),
       provideAuth(() => getAuth()),
+      provideStorage(() => getStorage()),
       provideFirestore(() => getFirestore()),
       AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,

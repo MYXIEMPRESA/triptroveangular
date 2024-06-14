@@ -2,13 +2,13 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import json
 import math
+import random
 
 app = Flask(__name__)
 CORS(app)
 
 with open('datos_museos_modificados.json', encoding='utf-8') as f:
     museos_info = json.load(f)
-
 
 def calcular_distancia(lat1, lon1, lat2, lon2):
     R = 6371
@@ -26,14 +26,19 @@ def museos_mas_cercanos():
         lon_cliente = float(request.args.get('lon'))
         tipos_museo = request.args.getlist('tipo')
         museos_filtrados = [museo for museo in museos_info if museo['Categorías'] and any(tipo.lower() in museo['Categorías'] for tipo in tipos_museo)] if tipos_museo else museos_info
-        museos_cercanos = []
-        for museo in museos_filtrados:
-            lat_museo = museo['Coordenadas']['latitud']
-            lon_museo = museo['Coordenadas']['longitud']
-            distancia = calcular_distancia(lat_cliente, lon_cliente, lat_museo, lon_museo)
-            museos_cercanos.append({'nombre': museo['Nombre'], 'latitud': lat_museo, 'longitud': lon_museo, 'distancia': distancia})
-        museos_cercanos = sorted(museos_cercanos, key=lambda x: x['distancia'])[:3]
-        return jsonify(museos_cercanos)
+        
+        # Seleccionar 9 museos semi-aleatorios
+        random.shuffle(museos_filtrados)
+        museos_seleccionados = museos_filtrados[:9]
+        
+        # Garantizar que tres de ellos sean cercanos
+        museos_cercanos = sorted(museos_seleccionados, key=lambda museo: calcular_distancia(lat_cliente, lon_cliente, museo['Coordenadas']['latitud'], museo['Coordenadas']['longitud']))[:3]
+        
+        # Combinar y ordenar todos los museos seleccionados
+        resultados_finales = museos_cercanos + [museo for museo in museos_seleccionados if museo not in museos_cercanos]
+        resultados_finales = [{'nombre': museo['Nombre'], 'latitud': museo['Coordenadas']['latitud'], 'longitud': museo['Coordenadas']['longitud']} for museo in resultados_finales]
+        
+        return jsonify(resultados_finales)
     except Exception as e:
         return jsonify({'error': str(e)}), 400
 

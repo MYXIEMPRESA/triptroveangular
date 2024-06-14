@@ -1,27 +1,28 @@
-<div *ngFor="let categoryGroup of categorizedPlaces">
-  <h2>{{ categoryGroup.category }}</h2>
-  <div class="places">
-    <div class="place" *ngFor="let place of categoryGroup.places" (click)="showModal(place)">
-      <div class="image" [ngStyle]="{ backgroundImage: 'url(' + place.imageURL + ')' }"></div>
-      <div class="info">
-        <h4>{{ place.name }}</h4>
-        <p>{{ place.description }}</p>
-        <div *ngIf="place.categories && place.categories.length > 0">
-          <p>Categorías: {{ place.categories.join(', ') }}</p>
-        </div>
-        <div *ngIf="!place.categories || place.categories.length === 0">
-          <p>Sin categorías</p>
-        </div>
-      </div>
+<div *ngFor="let category of categorizedPlaces">
+  <h2>{{ category.category }}</h2>
+  <div class="places-container">
+    <div class="place-card" *ngFor="let place of category.places" (click)="showModal(place)">
+      <img [src]="place.imageURL" alt="{{ place.name }}">
+      <h3>{{ place.name }}</h3>
+      <p>{{ place.description }}</p>
+      <p>{{ place.datosGenerales }}</p>
+      <p>{{ place.direccion }}</p>
+      <p>{{ place.email }}</p>
+      <p>{{ place.salasDeExhibicion?.join(', ') }}</p>
     </div>
   </div>
 </div>
 
-<div *ngIf="isModalOpen" class="modal" (click)="closeModal()">
+<!-- Modal -->
+<div class="modal" *ngIf="isModalOpen" (click)="closeModal()">
   <div class="modal-content" (click)="stopPropagation($event)">
-    <div class="modal-image" [ngStyle]="{ backgroundImage: 'url(' + selectedPlace.imageURL + ')' }"></div>
-    <h2>{{ selectedPlace.name }}</h2>
-    <p>{{ selectedPlace.description }}</p>
-    <button (click)="closeModal()">Cerrar</button>
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>{{ selectedPlace?.name }}</h2>
+    <img [src]="selectedPlace?.imageURL" alt="{{ selectedPlace?.name }}">
+    <p>{{ selectedPlace?.description }}</p>
+    <p>{{ selectedPlace?.datosGenerales }}</p>
+    <p>{{ selectedPlace?.direccion }}</p>
+    <p>{{ selectedPlace?.email }}</p>
+    <p>{{ selectedPlace?.salasDeExhibicion?.join(', ') }}</p>
   </div>
 </div>
