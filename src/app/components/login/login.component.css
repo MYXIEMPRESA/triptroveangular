@@ -1,10 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
 * {
-  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   color: #000000;
   text-decoration: none;
+}
+
+body {
+  background-image: url('../../../assets/images/fondoLogin.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start; /* Mueve el contenido a la izquierda */
+  align-items: center; /* Centra verticalmente */
+  height: 100vh; /* Establece la altura del cuerpo al 100% del viewport */
+  overflow: hidden; /* Evitará el desplazamiento vertical cuando el contenido sea más grande que la pantalla */
 }
 
 header {
@@ -32,7 +46,7 @@ header.sticky .nav li:nth-child(2) a {
 
 header.sticky {
   padding: 5px 100px;
-  background: #000000;
+  background: rgb(37, 150, 190);
 }
 
 header.sticky .logo,
@@ -48,18 +62,6 @@ header .logo {
   font-size: 2em;
   letter-spacing: 2px;
   transition: 0.6s;
-}
-
-header ul {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-header ul li {
-  position: relative;
-  list-style: none;
 }
 
 header ul li a {
@@ -84,26 +86,21 @@ header .login{
   overflow: hidden;
 }
 
-
 header ul li a::before,
 header ul li a::after {
   content: "";
   position: absolute;
   width: 120%;
-  /* Ajusta el ancho del subrayado aquí */
   height: 3px;
-  /* Ajusta el grosor del subrayado aquí */
   background-color: #000;
   z-index: -1;
   transition: transform 0.8s;
   border-radius: 5px;
-  /* Ajusta el radio del borde aquí */
 }
 
 header ul li a::before {
   top: 0;
   left: -10%;
-  /* Ajusta el desplazamiento del subrayado aquí */
   transform: scaleX(0);
   transform-origin: right;
 }
@@ -111,7 +108,6 @@ header ul li a::before {
 header ul li a::after {
   bottom: 0;
   right: -10%;
-  /* Ajusta el desplazamiento del subrayado aquí */
   transform: scaleX(0);
   transform-origin: left;
 }
@@ -126,26 +122,11 @@ header ul li a:hover::after {
   transform-origin: center;
 }
 
-body {
-  background-image: url('../../../assets//images/fondoLogin.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: flex-start; /* Mueve el contenido a la izquierda */
-  align-items: center; /* Centra verticalmente */
-  height: 100vh; /* Establece la altura del cuerpo al 100% del viewport */
-  overflow: hidden; /* Evitará el desplazamiento vertical cuando el contenido sea más grande que la pantalla */
-}
-
 .login-wrapper {
   max-width: 600px;
   min-width: 425px;
   padding: 20px;
-  margin: 20%; /* Agrega un margen de 20px alrededor del formulario */
+  margin: 20%; 
   border: 1px solid #85858577;
   border-radius: 11px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.247);
@@ -153,6 +134,21 @@ body {
   -webkit-backdrop-filter: blur(10px);
 }
 
+.back-button {
+  position: absolute; /* Hace que el botón sea de posicionamiento absoluto */
+  top: 2%; /* Lo coloca 5% desde la parte superior */
+  right: 0px; /* Lo coloca 5% desde el lado derecho */
+  z-index: 9999; /* Ajusta el índice z para asegurarte de que esté por encima del contenido */
+  display: flex; /* Hace que el contenido dentro del botón sea en línea */
+  align-items: center; /* Alinea verticalmente el contenido */
+  padding: 5px, ; /* Ajusta el padding para que sea similar al de los otros botones */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #000; /* Color del texto */
+  font-size: 150%;
+  font-weight: bold; /* Hace que el texto sea más marcado */
+}
 
 .back-button .material-icons {
   margin-right: 5px; /* Añade un pequeño espacio entre el icono y el texto */

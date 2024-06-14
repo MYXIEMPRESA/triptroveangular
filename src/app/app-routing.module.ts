@@ -6,23 +6,23 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component'; 
 import { AuthGuard } from './shared/guards/auth.guard';
 import { AboutComponent } from './components/about/about.component';
-import { DownloadComponent } from './components/download/download.component';
 import { MapScreenComponent } from './components/maps/screens/map-screen/map-screen.component';
 import { AdminPlaceComponent } from './components/admin-place/admin-place.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { AsociateComponent } from './components/asociate/asociate.component';
+import { AndroidComponent } from './components/android/android.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'download', component: DownloadComponent },
-  { path: 'SingIn', component: LoginComponent },
-  { path: 'SingUp', component: SignUpComponent },
+  { path: 'signIn', component: LoginComponent },
+  { path: 'signUp', component: SignUpComponent },
   { path: 'about', component: AboutComponent},
   { path: 'association', component: AsociateComponent},
   { path: 'maps', component: MapScreenComponent, canActivate: [AuthGuard]  },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'admin-place', component: AdminPlaceComponent, canActivate: [AuthGuard]},
   { path: 'comments', component: CommentsComponent, canActivate: [AuthGuard]},
+  { path: 'android', component: AndroidComponent}
   
 ];
 

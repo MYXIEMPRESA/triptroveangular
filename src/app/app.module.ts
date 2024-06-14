@@ -12,7 +12,6 @@ import { environment } from '../environments/environment';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { DownloadComponent } from './components/download/download.component';
 import { MapsModule } from './components/maps/maps.module';
 import { FormsModule } from '@angular/forms';
 import { UploadLocationsModule } from './components/UploadLocations/upload-locations.module';
@@ -22,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommentsComponent } from './components/comments/comments.component';
 import { SearchBardComponent } from './components/search-bard/search-bard.component';
 import { AsociateComponent } from './components/asociate/asociate.component';
-
+import { AndroidComponent } from './components/android/android.component';
+import { SettingsUserComponent } from './components/settings-user/settings-user.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +30,13 @@ import { AsociateComponent } from './components/asociate/asociate.component';
     LoginComponent,
     SignUpComponent,
     DashboardComponent,
-    DownloadComponent,
     AdminPlaceComponent,
     PlaceListUserComponent,
     CommentsComponent,
     SearchBardComponent,
     AsociateComponent,
+    AndroidComponent,
+    SettingsUserComponent,
 
   ],
   imports: [

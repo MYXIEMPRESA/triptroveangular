@@ -105,20 +105,28 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos del botón de alternar */
 #toggle-btn {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    cursor: pointer;
-    padding: 5px;
-    background-color: transparent;
-    color: #333;
-    border: none;
-    border-radius: 3px;
-    z-index: 2;
-    transition: left 0.3s ease;
+    width: 25px; /* Tamaño más grande */
+    height: 25px; /* Tamaño más grande */
+    background-color: #007BFF; /* Color de fondo más visible */
+    color: white; /* Color del icono */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px; /* Forma redonda */
+    padding: 10px; /* Espacio interno para fácil clic */
+    position: fixed; /* Asegura posición */
+    top: 10px; /* Distancia desde el top */
+    left: 10px; /* Distancia desde la izquierda */
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
 }
+
+/* Icono más grande dentro del botón */
+#toggle-btn i {
+    font-size: 24px; /* Tamaño del icono */
+}
+
 
 #sidebar.collapsed #toggle-btn {
     left: 10px;
@@ -134,11 +142,31 @@ body {
         margin-left: 200px;
     }
 
-    #sidebar.collapsed {
-        width: 0;
+
+    #sidebar-content {
+        padding: 20px;
+        max-height: calc(100vh - 40px); /* Altura máxima para permitir el desplazamiento */
+        overflow-y: auto; /* Habilita el desplazamiento vertical */
     }
 
     #content.collapsed {
         margin-left: 0;
     }
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, #1e7691, #29a1c6); /* Gradiente de color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px; /* Más redondeado */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-btn:hover, .submit-btn:focus {
+    transform: scale(1.05); /* Efecto de crecimiento */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más notable */
 }

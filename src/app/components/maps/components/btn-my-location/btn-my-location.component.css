@@ -3,18 +3,37 @@ button {
     top: 20px;
     right: 20px;
     z-index: inherit;
-    padding: 10px 15px; /* Ajusta el espaciado interno según sea necesario */
-    font-size: 16px; /* Tamaño de fuente */
-    border: 2px solid #4CAF50; /* Borde del botón */
-    border-radius: 5px; /* Esquinas redondeadas */
-    background-color: #4CAF50; /* Color de fondo */
-    color: #fff; /* Color del texto */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    outline: none; /* Elimina el contorno predeterminado en algunos navegadores */
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #29a1c6;
+    border-radius: 5px;
+    background-color: #29a1c6;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, border-color 0.3s; /* Suaviza la transición de colores */
 }
 
-/* Puedes agregar estilos adicionales para el hover o focus según tus necesidades */
 button:hover,
 button:focus {
-    background-color: #45a049; /* Cambia el color de fondo al pasar por encima o al tener el foco */
+    background-color: #1d5494; /* Verde un poco más oscuro para el efecto hover */
+    border-color: #0142a3; /* Cambio sutil en el color del borde */
+}
+button {
+    /* Estilos existentes */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra ligera para dar profundidad */
+}
+
+button:hover,
+button:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más intensa para el efecto hover */
+}
+button {
+    -webkit-user-select: none; /* Chrome, Safari, Opera */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+}
+button:active {
+    transform: translateY(2px); /* Mueve el botón hacia abajo para simular un efecto de presión */
 }

@@ -1,12 +1,12 @@
 <header>
   <a class="logo">TripTrove</a>
   <ul class="nav">
-    <li><a routerLink="/" class="active">INICIO</a></li>
-    <li><a routerLink="/about">ACERCA DE</a></li>
-    <li><a routerLink="/android">ANDROID</a></li>
-    <li><a routerLink="/associate">ASOCIATE</a></li>
+    <li><a href="/" class="active">INICIO</a></li>
+    <li><a href="/about">ACERCA DE</a></li>
+    <li><a href="/android">ANDROID</a></li>
+    <li><a href="/associate">ASOCIATE</a></li>
   </ul>
-  <a class="login" routerLink="/signIn">INGRESAR</a>
+  <a class="login" href="/signIn">INGRESAR</a>
 </header>
 <body>
   <div class="parallax section2">
@@ -15,19 +15,8 @@
       <h2>DESCUBRE <br><span class="multiText"></span></h2>
     </div>
   </div>
-  
-  <script>
-    window.onscroll = function () { scrollFunction() };
-    function scrollFunction() {
-      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-        document.querySelector("header").classList.add("sticky");
-      } else {
-        document.querySelector("header").classList.remove("sticky");
-      }
-    }
-  </script>
 </body>
-<footer class="text-center" style="background-color: #FF5500; color: white;">
+<footer class="text-center" style="background-color: #29a1c6; color: white;">
   <p style="margin-bottom: -2px;color: white;">All Rights Reserved © TripTrove</p>
   <div class="footer-icons d-flex justify-content-center">
     <div>

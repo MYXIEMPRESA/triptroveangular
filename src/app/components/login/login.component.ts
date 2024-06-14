@@ -37,7 +37,6 @@ export class LoginComponent {
     // Redirige al usuario a la página de inicio
     this.router.navigate(['/']);
   }
-
   @HostListener('window:scroll', ['$event'])
   onScroll() {
     this.toggleStickyHeader(window.scrollY > 0);

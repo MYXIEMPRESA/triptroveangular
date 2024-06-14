@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -36,5 +36,17 @@ export class SignUpComponent {
   goBack() {
     // Redirige al usuario a la página anterior
     this.router.navigate(['/']);
+  }
+  
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    this.toggleStickyHeader(window.scrollY > 0);
+  }
+
+  private toggleStickyHeader(isSticky: boolean) {
+    const header = document.querySelector("header");
+    if (header) {
+      header.classList.toggle("sticky", isSticky);
+    }
   }
 }

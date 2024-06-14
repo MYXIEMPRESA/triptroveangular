@@ -1,22 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
     color: #f7f7f7;
     text-decoration: none;
 }
 
-body {
-    background-color: black;
-    color: white;
-}
-
-header{
+header {
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
     display: flex;
@@ -28,84 +21,103 @@ header{
     font-size: 18px;
   }
 
-  header.sticky{
-    padding: 8px 100px;
-    background: #000000;
+  
+  header .login {
+    transition: 0.6s;
+    color: #000;
   }
-
-    header.sticky .logo,
-    header.sticky ul li a{
-    color:#ffffff;
+  header.sticky .login {
+    transition: transform 0.8s;
+    color: #ffffff;  
+    transition: 0.6s;
   }
-
-  header .logo{
+  
+  header.sticky {
+    padding: 5px 100px;
+    background: #29a1c6;
+  }
+  
+  header.sticky .logo,
+  header.sticky ul li a {
+    color: #ffffff;
+  }
+  
+  header .logo {
     position: relative;
     font-weight: 700;
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
     font-size: 2em;
     letter-spacing: 2px;
     transition: 0.6s;
   }
-
+  
   header ul {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
-  header ul li{
+  
+  header ul li {
     position: relative;
     list-style: none;
   }
-
+  
   header ul li a {
     position: relative;
     margin: 0 15px;
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     letter-spacing: 2px;
     font-weight: 500;
     transition: 0.5s;
     overflow: hidden;
-}
+  }
 
-header ul li a::before,
-header ul li a::after {
+
+  header ul li a::before,
+  header ul li a::after {
     content: "";
     position: absolute;
-    width: 120%; /* Ajusta el ancho del subrayado aquí */
-    height: 3px; /* Ajusta el grosor del subrayado aquí */
-    background-color: #fafafa;
+    width: 120%;
+    height: 3px;
     z-index: -1;
     transition: transform 0.8s;
-    border-radius: 5px; /* Ajusta el radio del borde aquí */
-}
-
-header ul li a::before {
+    border-radius: 5px;
+  }
+  
+  header ul li a::before {
     top: 0;
-    left: -10%; /* Ajusta el desplazamiento del subrayado aquí */
+    left: -10%;
+    /* Ajusta el desplazamiento del subrayado aquí */
     transform: scaleX(0);
     transform-origin: right;
-}
-
-header ul li a::after {
+  }
+  
+  header ul li a::after {
     bottom: 0;
-    right: -10%; /* Ajusta el desplazamiento del subrayado aquí */
+    right: -10%;
+    /* Ajusta el desplazamiento del subrayado aquí */
     transform: scaleX(0);
     transform-origin: left;
-}
-
-header ul li a:hover {
-    color: #ffffff;
-}
-
-header ul li a:hover::before,
-header ul li a:hover::after {
+  }
+  
+  header ul li a:hover {
+    color: #000000;
+  }
+  
+  header ul li a:hover::before,
+  header ul li a:hover::after {
     transform: scaleX(1);
     transform-origin: center;
-}
+  }
+  
+  header ul li a.active {
+    font-weight: bold; 
+    font-size: 120%;
+  }
+
 
 
 .page-container {
@@ -114,7 +126,7 @@ header ul li a:hover::after {
 
 .parallax.section1 {
     position: relative;
-    background-image: url("../../../assets/images/fondito.jpg");
+    background-image: url("src/assets/images/fondito.jpg");
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -123,24 +135,28 @@ header ul li a:hover::after {
 
 .parallax.section1 .parallax-overlay {
     position: absolute;
-    top: 0; /* Ajusta la altura desde la parte superior según tu preferencia */
-    left: 0; /* Posiciona la capa overlay a la izquierda */
-    width: 40%; /* Ajusta el ancho según tu preferencia */
-    height: 50vh; /* Ajusta la altura según tu preferencia */
+    top: 0;
+    /* Ajusta la altura desde la parte superior según tu preferencia */
+    left: 0;
+    /* Posiciona la capa overlay a la izquierda */
+    width: 40%;
+    /* Ajusta el ancho según tu preferencia */
+    height: 50vh;
+    /* Ajusta la altura según tu preferencia */
     background-color: rgba(0, 0, 0, 0.233);
     z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 20px; /* Ajusta el radio del borde según tu preferencia */
-    padding: 60px; /* Agrega relleno según tu preferencia */
+    border-radius: 20px;
+    /* Ajusta el radio del borde según tu preferencia */
+    padding: 60px;
+    /* Agrega relleno según tu preferencia */
     margin-top: 160px;
     margin-left: 30px;
     backdrop-filter: blur(12px);
 }
-
-
 
 .parallax.section1 .parallax-overlay h1,
 .parallax.section1 .parallax-overlay p {
@@ -291,7 +307,8 @@ header ul li a:hover::after {
     color: white;
     padding: 50px;
     text-align: center;
-    height: 30vh; /* Cambiado a auto para adaptarse al contenido */
+    height: 30vh;
+    /* Cambiado a auto para adaptarse al contenido */
 }
 
 .company-info {
@@ -299,11 +316,12 @@ header ul li a:hover::after {
     align-items: center;
     justify-content: space-between;
     text-align: left;
-    flex-wrap: wrap; /* Añadido para manejar el contenido en dispositivos pequeños */
+    flex-wrap: wrap;
+    /* Añadido para manejar el contenido en dispositivos pequeños */
 }
 
 .company-info img {
-    max-width: 200px; 
+    max-width: 200px;
     margin-right: 35px;
     border-radius: 7px;
     margin-bottom: 10px;
@@ -312,7 +330,8 @@ header ul li a:hover::after {
 .text-info,
 .Myxi-text-info {
     flex: 1;
-    max-width: 60%; /* Ajusta según sea necesario */
+    max-width: 60%;
+    /* Ajusta según sea necesario */
 }
 
 .team-member,
@@ -336,4 +355,43 @@ header ul li a:hover::after {
 .team-member a,
 .Myxi-text-info a {
     color: #ffffff;
+}
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    /* Ajusta esto según la necesidad */
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+footer a,
+footer div {
+    display: flex;
+    /* Usa flexbox dentro de los enlaces y divs para alinear los SVG */
+    align-items: center;
+    /* Centra los elementos verticalmente dentro de los enlaces */
+    justify-content: center;
+    /* Centra los contenidos horizontalmente dentro de los enlaces */
+    margin: 0 10px;
+    /* Espaciado entre elementos */
+}
+
+footer svg {
+    width: 24px;
+    /* Tamaño estándar para los SVG */
+    height: 24px;
+    /* Tamaño estándar para los SVG */
+    margin-right: 5px;
+    /* Espacio a la derecha de los SVG para separarlos del texto */
+}
+
+footer p {
+    margin: 0 20px 0 0;
+    /* Margen para separar el texto del resto de elementos */
 }

@@ -31,7 +31,7 @@ header.sticky .nav li:nth-child(2) a {
 
 header.sticky {
   padding: 5px 100px;
-  background: #FF5500;
+  background:#29a1c6;
 }
 
 header.sticky .logo,
@@ -110,7 +110,6 @@ header ul li a:hover::after {
 }
 
 header ul li a.active {
-  color: #000000; 
   font-weight: bold; 
   font-size: 120%;
 }
@@ -149,7 +148,6 @@ header ul li a.active {
   color: #000000;
 }
 
-
 .audi {
   text-align: left;
   justify-content: center;
@@ -163,56 +161,8 @@ header ul li a.active {
 .multiText {
   font-size: 35px;
 }
-
-@media only screen and (max-width: 768px) {
-  header ul {
-    display: none;
-  }
-
-  header.sticky {
-    padding: 5px 20px;
-  }
-
-  header .logo {
-    margin-left: -30%;
-    font-size: 1.5em;
-  }
-
-  @media only screen and (max-width: 768px) {
-    .parallax.section2 h1 {
-      font-size: 60px;
-    }
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  header.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #FF5500;
-    padding: 5px 100px;
-  }
-
-  header.sticky .logo,
-  header.sticky ul li a {
-    color: #ffffff;
-  }
-
-  .menu-toggle {
-    display: block;
-    width: 200%;
-    height: 200%;
-    margin-right: -35%;
-    color: #ffffff;
-  }
-  .login{
-    margin-right: -30%;
-  }
-}
 footer {
-  background-color: #FF5500;
+  background-color: #29a1c6;
   color: white;
   text-align: center;
   padding: 20px 0; 

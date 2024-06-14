@@ -9,45 +9,45 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./search-results.component.css']
 })
 export class SearchResultsComponent {
-  
+
   //constructor
-  constructor( private placesServices: PlacesService,
+  constructor(private placesServices: PlacesService,
     private mapService: MapService
-    ){}
-  
-    //variables
-    public transport: String = 'walking';
-    public selectedId: String = '';
+  ) { }
 
-    //get and set
-    get isLodingPlaces(){
-      return this.placesServices.isLoadingPlaces;
-    }
-    
-    get places(): Feature[]{
-      return this.placesServices.places;
-    }
+  //variables
+  public transport: String = 'walking';
+  public selectedId: String = '';
 
-    //metodos
-    //direcciones
-  getDirections(transport : String,place : Feature) {
-    if(!this.placesServices.userLocation) throw Error('No hay userLocation');
+  //get and set
+  get isLodingPlaces() {
+    return this.placesServices.isLoadingPlaces;
+  }
+
+  get places(): Feature[] {
+    return this.placesServices.places;
+  }
+
+  //metodos
+  //direcciones
+  getDirections(transport: String, place: Feature) {
+    if (!this.placesServices.userLocation) throw Error('No hay userLocation');
     this.placesServices.upPlaces();
     const start = this.placesServices.userLocation;
     const end = place.center as [number, number];
-    this.mapService.getRouteBetweenPoints(transport,start,end)
+    this.mapService.getRouteBetweenPoints(transport, start, end)
   }
 
   //animaciones
-  flyto(places: Feature){
+  flyto(places: Feature) {
     this.selectedId = places.id;
-    const[ lng, lat] =places.center;
-    this.mapService.flyTo({lng,lat})
+    const [lng, lat] = places.center;
+    this.mapService.flyTo({ lng, lat })
   }
 
   //subir transporte
   updateTransport(option: string): void {
     this.transport = option;
-}
+  }
 }
 
