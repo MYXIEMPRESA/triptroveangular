@@ -1,17 +1,21 @@
-/* Estilos generales */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+
+* {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: #000000;
+    text-decoration: none;
+}
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    margin-top: 100px; /* Ajusta el valor según la altura de tu header */
+    margin-top: 100px;
 }
 
 .container {
     width: 90%;
     margin: 0 auto;
 }
-
 
 header {
     position: fixed;
@@ -25,48 +29,27 @@ header {
     padding: 40px 100px;
     z-index: 100000;
     font-size: 18px;
-  }
-
-  /* Estilo por defecto del header */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: transparent;
-    transition: background-color 0.5s ease;
 }
 
-/* Estilo del header cuando se activa la clase 'scrolled' */
-header.scrolled {
-    background-color: #000000; /* Cambia el color de fondo a negro */
-}
-
-header.scrolled .logo,
-header.scrolled ul li a {
-    color: #ffffff; /* Cambia el color del texto a blanco */
-}
-  
-  header.sticky .login {
+header.sticky .login {
     color: #ffffff;
-  }
-  
-  /* Agrega esta regla CSS para cambiar el color del enlace "ANDROID" */
-  header.sticky .nav li:nth-child(2) a {
+}
+
+header.sticky .nav li:nth-child(2) a {
     color: #ffffff;
-  }
-  
-  header.sticky {
+}
+
+header.sticky {
     padding: 5px 100px;
-    background: #000000;
-  }
-  
-  header.sticky .logo,
-  header.sticky ul li a {
+    background: #29a1c6;
+}
+
+header.sticky .logo,
+header.sticky ul li a {
     color: #ffffff;
-  }
-  
-  header .logo {
+}
+
+header .logo {
     position: relative;
     font-weight: 700;
     color: #000000;
@@ -74,21 +57,21 @@ header.scrolled ul li a {
     font-size: 2em;
     letter-spacing: 2px;
     transition: 0.6s;
-  }
-  
-  header ul {
+}
+
+header ul {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  header ul li {
+}
+
+header ul li {
     position: relative;
     list-style: none;
-  }
-  
-  header ul li a {
+}
+
+header ul li a {
     position: relative;
     margin: 0 15px;
     text-decoration: none;
@@ -97,51 +80,52 @@ header.scrolled ul li a {
     font-weight: 500;
     transition: 0.5s;
     overflow: hidden;
-  }
-  
-  header ul li a::before,
-  header ul li a::after {
+}
+
+header ul li a::before,
+header ul li a::after {
     content: "";
     position: absolute;
     width: 120%;
-    /* Ajusta el ancho del subrayado aquí */
     height: 3px;
-    /* Ajusta el grosor del subrayado aquí */
     background-color: #000;
     z-index: -1;
     transition: transform 0.8s;
     border-radius: 5px;
-    /* Ajusta el radio del borde aquí */
-  }
-  
-  header ul li a::before {
+}
+
+header ul li a::before {
     top: 0;
     left: -10%;
-    /* Ajusta el desplazamiento del subrayado aquí */
     transform: scaleX(0);
     transform-origin: right;
-  }
-  
-  header ul li a::after {
+}
+
+header ul li a::after {
     bottom: 0;
     right: -10%;
-    /* Ajusta el desplazamiento del subrayado aquí */
+
     transform: scaleX(0);
     transform-origin: left;
-  }
-  
-  header ul li a:hover {
+}
+
+header ul li a:hover {
     color: #000000;
-  }
-  
-  header ul li a:hover::before,
-  header ul li a:hover::after {
+}
+
+header ul li a:hover::before,
+header ul li a:hover::after {
     transform: scaleX(1);
     transform-origin: center;
-  }
+}
 
-  
-  
+header ul li a.active {
+    font-weight: bold;
+    font-size: 120%;
+}
+
+
+
 nav ul {
     padding: 0;
     list-style: none;
@@ -259,26 +243,75 @@ nav ul li a {
     border-radius: 5px;
 }
 
-/* Estilos para el pie de página */
 
 footer {
-    background-color: #333;
-    color: #fff;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    /* Ajusta esto según la necesidad */
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+footer a,
+footer div {
+    display: flex;
+    /* Usa flexbox dentro de los enlaces y divs para alinear los SVG */
+    align-items: center;
+    /* Centra los elementos verticalmente dentro de los enlaces */
+    justify-content: center;
+    /* Centra los contenidos horizontalmente dentro de los enlaces */
+    margin: 0 10px;
+    /* Espaciado entre elementos */
+}
+
+footer svg {
+    width: 24px;
+    /* Tamaño estándar para los SVG */
+    height: 24px;
+    /* Tamaño estándar para los SVG */
+    margin-right: 5px;
+    /* Espacio a la derecha de los SVG para separarlos del texto */
+}
+
+footer p {
+    margin: 0 20px 0 0;
+    /* Margen para separar el texto del resto de elementos */
+}
+.partner-callout {
+    background-color: #f8f8f8; /* Fondo claro para mayor visibilidad */
     padding: 20px 0;
     text-align: center;
 }
 
-footer ul {
-    padding: 0;
-    list-style: none;
+.partner-callout .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-footer ul li {
-    display: inline;
-    margin-right: 20px;
+.partner-callout img {
+    max-width: 400px; /* Ajusta según el tamaño de tu diseño */
 }
 
-footer ul li a {
-    color: #fff;
+.partner-callout .callout-content h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.partner-callout .callout-content p {
+    font-size: 18px;
+    color: #666;
+}
+
+.partner-callout .btn {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 20px;
     text-decoration: none;
+    border-radius: 5px;
 }

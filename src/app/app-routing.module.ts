@@ -22,8 +22,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'admin-place', component: AdminPlaceComponent, canActivate: [AuthGuard]},
   { path: 'comments', component: CommentsComponent, canActivate: [AuthGuard]},
-  { path: 'android', component: AndroidComponent}
-  
+  { path: 'android', component: AndroidComponent},
 ];
 
 @NgModule({
