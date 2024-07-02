@@ -77,30 +77,26 @@ export class GenerateResultsBardComponent {
               }));
 
               this.mapService.createMarkersFromPlaces(places, userLocation);
-
-              // Ruta del usuario al primer museo
               this.mapService.getRouteBetweenPoints('walking', userLocation, [museo1.longitud, museo1.latitud])
-                .subscribe(route1 => {
-                  this.mapService.drawPolyline(route1, this.mapService.mapSubject.value!, 'route1');
-
-                  // Ruta del primer museo al segundo museo
-                  this.mapService.getRouteBetweenPoints('walking', [museo1.longitud, museo1.latitud], [museo2.longitud, museo2.latitud])
-                    .subscribe(route2 => {
-                      this.mapService.drawPolyline(route2, this.mapService.mapSubject.value!, 'route2');
-
-                      // Ruta del segundo museo al tercer museo
-                      this.mapService.getRouteBetweenPoints('walking', [museo2.longitud, museo2.latitud], [museo3.longitud, museo3.latitud])
-                        .subscribe(route3 => {
-                          this.mapService.drawPolyline(route3, this.mapService.mapSubject.value!, 'route3');
-
-                          // Ruta de regreso al punto de partida desde el tercer museo
-                          this.mapService.getRouteBetweenPoints('walking', [museo3.longitud, museo3.latitud], userLocation)
-                            .subscribe(route4 => {
-                              this.mapService.drawPolyline(route4, this.mapService.mapSubject.value!, 'route4');
-                            });
-                        });
-                    });
-                });
+              .subscribe(route1 => {
+                this.mapService.drawPolyline(route1, this.mapService.mapSubject.value!, 'route1', '#FF5733'); 
+            
+                this.mapService.getRouteBetweenPoints('walking', [museo1.longitud, museo1.latitud], [museo2.longitud, museo2.latitud])
+                  .subscribe(route2 => {
+                    this.mapService.drawPolyline(route2, this.mapService.mapSubject.value!, 'route2', '#33CFFF'); 
+            
+                    this.mapService.getRouteBetweenPoints('walking', [museo2.longitud, museo2.latitud], [museo3.longitud, museo3.latitud])
+                      .subscribe(route3 => {
+                        this.mapService.drawPolyline(route3, this.mapService.mapSubject.value!, 'route3', '#8E44AD');
+            
+                        this.mapService.getRouteBetweenPoints('walking', [museo3.longitud, museo3.latitud], userLocation)
+                          .subscribe(route4 => {
+                            this.mapService.drawPolyline(route4, this.mapService.mapSubject.value!, 'route4', '#27AE60');
+                          });
+                      });
+                  });
+              });
+            
             }
           },
           error => {

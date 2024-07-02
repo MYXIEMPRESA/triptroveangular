@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { PlacesService } from '../UploadLocations/services';
-import Place from '../UploadLocations/interfaces/place.interface';
+import { Place } from '../UploadLocations/interfaces/place.interface';
 
 @Component({
   selector: 'app-place-list-user',
@@ -8,64 +8,55 @@ import Place from '../UploadLocations/interfaces/place.interface';
   styleUrls: ['./place-list-user.component.css']
 })
 export class PlaceListUserComponent implements OnInit {
-  selectedPlace: any;
-  isModalOpen: boolean = false; // Variable para controlar el estado de la modal
+  selectedPlace: Place | null = null;
+  isModalOpen: boolean = false;
   categorizedPlaces: { category: string, places: Place[] }[] = [];
-  loadingMore: boolean = false;
 
   constructor(private placesService: PlacesService) {}
 
   ngOnInit(): void {
     this.placesService.places$.subscribe(places => {
-      if (!places) return;
-
-      // Agrupar los lugares por categorías
+      console.log('Fetching places from service:', places);
       const categorizedPlacesMap = new Map<string, Place[]>();
       places.forEach(place => {
-        if (place.categories) { // Verificar si place.categories existe
-          place.categories.forEach(category => {
-            if (!categorizedPlacesMap.has(category)) {
-              categorizedPlacesMap.set(category, []);
-            }
-            categorizedPlacesMap.get(category)?.push(place);
-          });
-        }
+        place.categories.forEach(category => {
+          if (!categorizedPlacesMap.has(category)) {
+            categorizedPlacesMap.set(category, []);
+          }
+          categorizedPlacesMap.get(category)?.push(place);
+        });
       });
-  
-      // Convertir el mapa a un array para mostrarlo en el HTML
-      this.categorizedPlaces = Array.from(categorizedPlacesMap.entries()).map(([category, places]) => {
-        return { category, places };
-      });
-    });
+      this.categorizedPlaces = Array.from(categorizedPlacesMap.entries())
+                                   .map(([category, places]) => ({ category, places }));
+      console.log('Categorized places:', this.categorizedPlaces);
+    }, error => console.error('Error fetching places:', error));
   }
 
-  @HostListener('window:scroll', [])
-  onScroll(): void {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !this.loadingMore) {
-      this.loadingMore = true;
-      this.loadMorePlaces();
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: any): void {
+    console.log('Window scrolled:', event);
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      console.log('End of page reached, loading more places.');
+      this.placesService.loadMorePlaces();
     }
   }
 
-  loadMorePlaces(): void {
-    this.placesService.loadMorePlaces().then(() => {
-      this.loadingMore = false;
-    });
-  }
-
-  showModal(place: any): void {
+  showModal(place: Place): void {
+    console.log('Showing modal for:', place);
     this.selectedPlace = place;
-    this.isModalOpen = true; // Abrir la modal
-    document.body.style.overflow = 'hidden'; 
+    this.isModalOpen = true;
+    document.body.style.overflow = 'hidden';
   }
 
   closeModal(): void {
+    console.log('Closing modal');
     this.selectedPlace = null;
     this.isModalOpen = false;
-    document.body.style.overflow = 'auto'; 
+    document.body.style.overflow = 'auto';
   }
 
   stopPropagation(event: Event): void {
+    console.log('Stopping propagation for event:', event);
     event.stopPropagation();
   }
 }

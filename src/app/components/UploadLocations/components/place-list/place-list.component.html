@@ -1,15 +1,20 @@
 <div class="places">
   <div class="place" *ngFor="let place of places">
-
+    <img *ngIf="place.imageURL && place.imageURL.length > 0" [src]="place.imageURL[0]" alt="{{ place.name }}">
     <div class="info">
       <h4>{{ place.name }}</h4>
       <p>{{ place.description }}</p>
-      <p>Coordenadas: {{ place.latitude }} / {{ place.longitude }}</p>
-      
+      <p>Coordenadas: {{ place.coordenadas.latitud }} / {{ place.coordenadas.longitud }}</p>
       <div *ngIf="place.categories && place.categories.length > 0">
         <p>Categorías: {{ place.categories.join(', ') }}</p>
       </div>
-
+      <p>Dirección: {{ place.direccion }}</p>
+      <p>Email: {{ place.email || 'No disponible' }}</p>
+      <p>Horarios: {{ place.horarios }}</p>
+      <p>Costos: {{ place.costos }}</p>
+      <div *ngIf="place.salasDeExhibicion && place.salasDeExhibicion.length > 0">
+        <p>Salas de Exhibición: {{ place.salasDeExhibicion.join(', ') }}</p>
+      </div>
       <button class="btn btn-outline-danger" (click)="onClickDelete(place)">Borrar</button>
     </div>
   </div>

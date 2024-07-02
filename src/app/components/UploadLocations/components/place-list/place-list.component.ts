@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { PlacesService } from '../../services';
-import Place from '../../interfaces/place.interface';
-
+import {Place} from '../../interfaces/place.interface';
 
 @Component({
   selector: 'app-place-list',
@@ -11,11 +9,9 @@ import Place from '../../interfaces/place.interface';
 })
 export class PlaceListComponent implements OnInit {
 
-  places: Place[] | undefined;
+  places: Place[] = [];
 
-  constructor(
-    private placesService: PlacesService) {
-  }
+  constructor(private placesService: PlacesService) {}
 
   ngOnInit(): void {
     this.placesService.places$.subscribe(places => {
@@ -24,7 +20,11 @@ export class PlaceListComponent implements OnInit {
   }
 
   async onClickDelete(place: Place) {
-    const response = await this.placesService.deletePlace(place);
-    console.log(response);
+    try {
+      await this.placesService.deletePlace(place);
+      this.places = this.places.filter(p => p.id !== place.id);
+    } catch (error) {
+      console.error('Error deleting place: ', error);
+    }
   }
 }

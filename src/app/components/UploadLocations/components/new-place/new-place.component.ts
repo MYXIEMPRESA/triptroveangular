@@ -1,7 +1,7 @@
 // new-place.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormArray } from '@angular/forms';
-import Place from '../../interfaces/place.interface';
+import {Place} from '../../interfaces/place.interface';
 import { PlacesService } from '../../services';
 
 @Component({
@@ -22,7 +22,7 @@ export class NewPlaceComponent implements OnInit {
       longitude: new FormControl(),
       description: new FormControl(),
       image: new FormControl(null),
-      categories: new FormArray([]) 
+      categories: new FormArray([])   
     });
     alert(this.categories)
   }
@@ -48,13 +48,13 @@ export class NewPlaceComponent implements OnInit {
   }
 
   async onSubmit() {
-    const placeData: Place = this.formulario.value;
-    if (placeData.image) {
-      const imageURL = await this.placesService.uploadImage(placeData.image);
-      placeData.imageURL = imageURL;
-    }
+  //   const placeData: Place = this.formulario.value;
+  //   if (placeData.image) {
+  //     const imageURL = await this.placesService.uploadImage(placeData.image);
+  //     placeData.imageURL = imageURL;
+  //   }
 
-    const response = await this.placesService.addPlace(placeData);
-    console.log(response);
+  //   const response = await this.placesService.addPlace(placeData);
+  //   console.log(response);
   }
 }

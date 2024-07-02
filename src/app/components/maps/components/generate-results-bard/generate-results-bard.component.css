@@ -1,13 +1,12 @@
-/* Estilos base */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f1f1f1;
-    position: relative;
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
-/* Estilos del sidebar */
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #000000;
+  text-decoration: none;
+}
+/* TODA LA SIDEBAR */
 #sidebar {
     position: fixed;
     top: 0;
@@ -20,6 +19,7 @@ body {
     padding-top: 20px;
 }
 
+/* TODO LO DE FORM */
 .form-section {
     display: flex;
     width: 500px;
@@ -32,9 +32,10 @@ body {
     margin-top: 20px;
 }
 
+/* BOTONES DE SELECCION */
 .theme-buttons {
     display: flex;
-    gap: 10px; /* Espacio entre botones */
+    gap: 10px;
 }
 
 .theme-btn {
@@ -47,29 +48,31 @@ body {
     border-radius: 50%;
     transition: background-color 0.3s, box-shadow 0.3s;
     padding: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra suave para profundidad */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
 }
 
 .theme-btn:hover, .theme-btn.active {
-    background-color: #ff9800; /* Color naranja al pasar el ratón por encima y para el activo */
+    background-color: #ff9800; 
     color: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra más intensa para el efecto de elevación */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
 }
 
 .material-icons {
-    font-size: 24px; /* Ajusta el tamaño de los iconos según necesites */
-    color: #333; /* Color inicial de los iconos */
-    transition: color 0.3s; /* Transición suave para el cambio de color del icono */
+    font-size: 24px; 
+    color: #333; 
+    transition: color 0.3s;
 }
 
 .theme-btn.active .material-icons {
-    color: #fff; /* Cambio de color del icono a blanco cuando activo */
+    color: #fff;
 }
 
 .theme-btn:hover .material-icons {
-    color: #fff; /* Cambio de color del icono a blanco al pasar el ratón por encima */
+    color: #fff; 
 }
 
+
+/* ACAMODOR SIDEBARD */
 #sidebar.collapsed {
     width: 0;
     overflow: hidden;
@@ -84,76 +87,35 @@ body {
     padding: 0;
 }
 
-/* Estilos del contenido principal */
-#content {
-    margin-left: 25px;
-    min-width: 300px;
-    padding: 20px;
-    transition: margin-left 0.3s ease;
-}
 
-#content.collapsed {
-    margin-left: 0;
-}
 
-.content-section {
-    background-color: #fff;
-    padding: 20px;
-    max-width: 500px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
+/* BOTON PARA LA SIDEBARD */
 #toggle-btn {
-    width: 25px; /* Tamaño más grande */
-    height: 25px; /* Tamaño más grande */
-    background-color: #007BFF; /* Color de fondo más visible */
-    color: white; /* Color del icono */
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
+    width: 25px; 
+    height: 25px; 
+    background-color: #007BFF;
+    color: white; 
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); 
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 25px; /* Forma redonda */
-    padding: 10px; /* Espacio interno para fácil clic */
-    position: fixed; /* Asegura posición */
-    top: 10px; /* Distancia desde el top */
-    left: 10px; /* Distancia desde la izquierda */
-    z-index: 1000; /* Asegura que esté sobre otros elementos */
+    border-radius: 25px; 
+    padding: 10px;
+    position: fixed; 
+    top: 10px; 
+    left: 10px; 
+    z-index: 1000; 
 }
 
-/* Icono más grande dentro del botón */
 #toggle-btn i {
-    font-size: 24px; /* Tamaño del icono */
+    font-size: 24px; 
 }
 
 
 #sidebar.collapsed #toggle-btn {
     left: 10px;
 }
-
-/* Estilos adicionales para hacer el diseño más responsivo */
-@media only screen and (max-width: 768px) {
-    #sidebar {
-        width: 200px;
-    }
-
-    #content {
-        margin-left: 200px;
-    }
-
-
-    #sidebar-content {
-        padding: 20px;
-        max-height: calc(100vh - 40px); /* Altura máxima para permitir el desplazamiento */
-        overflow-y: auto; /* Habilita el desplazamiento vertical */
-    }
-
-    #content.collapsed {
-        margin-left: 0;
-    }
-}
-
+/* BOTON PARA GENERAR RUTAS */
 .submit-btn {
     background: linear-gradient(45deg, #1e7691, #29a1c6); /* Gradiente de color */
     color: white;

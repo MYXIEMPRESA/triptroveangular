@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import Place from '../../interfaces/place.interface';
+  import { Component, OnInit } from '@angular/core';
 import { PlacesService } from '../../services';
 
 @Component({

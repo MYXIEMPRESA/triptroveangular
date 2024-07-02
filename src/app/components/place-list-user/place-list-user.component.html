@@ -2,13 +2,13 @@
   <h2>{{ category.category }}</h2>
   <div class="places-container">
     <div class="place-card" *ngFor="let place of category.places" (click)="showModal(place)">
-      <img [src]="place.imageURL" alt="{{ place.name }}">
+      <img [src]="place['imageURL']" alt="{{ place.name }}">
       <h3>{{ place.name }}</h3>
       <p>{{ place.description }}</p>
-      <p>{{ place.datosGenerales }}</p>
-      <p>{{ place.direccion }}</p>
-      <p>{{ place.email }}</p>
-      <p>{{ place.salasDeExhibicion?.join(', ') }}</p>
+      <p>{{ place['datosGenerales'] }}</p>
+      <p>{{ place['direccion'] }}</p>
+      <p>{{ place['email'] }}</p>
+      <p>{{ place['salasDeExhibicion']?.join(', ') }}</p>
     </div>
   </div>
 </div>

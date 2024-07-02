@@ -35,25 +35,16 @@
             <br>
             <button type="submit" class="submit-btn">Generar Recorrido</button>
         </form>
-        <p *ngIf="message">{{ message }}</p>
+        <div *ngIf="routeInfoArray.length > 0">
+            <h3>Ubicaciones sugeridas:</h3>
+            <ul>
+                <li *ngFor="let location of routeInfoArray">
+                    {{ location.nombre }} - {{ location.direccion }}
+                </li>
+            </ul>
+        </div>    
     </div>
 </div>
-
-<div id="content" [ngClass]="{'collapsed': isCollapsed}">
-    <div *ngFor="let result of routeInfoArray" class="lugar-card">
-        <div class="imagen">
-            <!-- Añadir la imagen aquí si está disponible -->
-            <img src="path_to_image" alt="{{ result.nombre }}">
-        </div>
-        <div class="info">
-            <h3>{{ result.nombre }}</h3>
-            <p>Tiempo: {{ result.tiempo }}</p>
-            <p>Categorías: {{ result.categorias }}</p>
-            <p>Costos: {{ result.costos }}</p>
-        </div>
-    </div>
-</div>
-
 <button id="toggle-btn" (click)="toggleSidebar()">
     <i class="fas fa-bars"></i>
 </button>

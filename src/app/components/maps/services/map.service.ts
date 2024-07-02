@@ -99,8 +99,7 @@ export class MapService {
         map(response => response.routes[0])
       );
   }
-
-  public drawPolyline(route: Route, map: Map, id: string): void { // Añadir id como parámetro
+  public drawPolyline(route: Route, map: Map, id: string, color: string = 'green'): void { // Añadir color como parámetro con valor por defecto
     const coords = route.geometry.coordinates;
     const bounds = new LngLatBounds();
     coords.forEach(([lng, lat]) => bounds.extend([lng, lat]));
@@ -137,11 +136,12 @@ export class MapService {
         'line-join': 'round'
       },
       paint: {
-        'line-color': 'green',
+        'line-color': color, // Usar el parámetro color
         'line-width': 7
       }
     });
-  }
+}
+
 
   drawRoute(route: [number, number][], id: string): void {
     this.map$.subscribe(map => {
